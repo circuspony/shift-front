@@ -1,4 +1,4 @@
-import { ReactElement, useState, Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 import ExitIcon from "../../svg/exiticon";
 import Cookies from 'universal-cookie';
 import SettingsIcon from "../../svg/settingsIcon";
