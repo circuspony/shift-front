@@ -7,7 +7,7 @@ const ButtonWrapper = ({ children, addonClass = "", type = "button", onClick = (
     onClick?: MouseEventHandler<HTMLButtonElement>
 }) => {
     return (
-        <button type={type} onClick={onClick} className={`flex rounded-md font-semibold transition-colors duration-300 ease-linear bg-button-green text-button-green-text ` + addonClass}>
+        <button type={type} onClick={onClick} className={`flex rounded-md font-semibold transition-colors duration-300 ease-linear bg-button-green text-normal-green-text ` + addonClass}>
             {children}
         </button>
     )

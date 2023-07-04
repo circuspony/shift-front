@@ -3,7 +3,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/home'
 import Profile from './pages/profile'
-import Header from './components/layout/header';
+import Header from './components/layout/headerComponents/header';
 import SignIn from './pages/signin';
 import SignUp from './pages/signup';
 import { UserContextProvider } from './components/context/userContext';

@@ -7,7 +7,7 @@ export default {
     extend: {
       colors: {
         "button-green": "#D2E892",
-        "button-green-text": "#364C6F",
+        "normal-green-text": "#364C6F",
         "custom-grey": "rgb(230,230,230)",
         "input-border": "#D6E1E8"
       },
