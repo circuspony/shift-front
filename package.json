@@ -10,13 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "awesome-typescript-loader": "^5.2.1",
-    "mdb-react-ui-kit": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.1",
     "react-router-dom": "^6.14.1",
-    "source-map-loader": "^4.0.1",
     "universal-cookie": "^4.0.4"
   },
   "devDependencies": {
