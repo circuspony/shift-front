@@ -11,7 +11,7 @@ function Header() {
 
     return (
         <div className="bg-white w-full">
-            <div className='flex items-center max-w-screen-2xl w-full mx-auto py-4'>
+            <div className='flex items-center max-w-screen-2xl w-full mx-auto py-4 px-8 2xl:px-0'>
 
                 <Link to="/" className="flex items-center text-normal-green-text hover:text-normal-green-text">
                     <div className="w-12">
