@@ -22,19 +22,15 @@ export default function ProfilePage() {
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>
-            <ol>
             <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
-              <li>
               <MDBBreadcrumbItem>
                 <a href='#'>Home</a>
               </MDBBreadcrumbItem>
-              </li>
               <MDBBreadcrumbItem>
                 <a href="#">User</a>
               </MDBBreadcrumbItem>
               <MDBBreadcrumbItem active>User Profile</MDBBreadcrumbItem>
             </MDBBreadcrumb>
-            </ol>
           </MDBCol>
         </MDBRow>
 
