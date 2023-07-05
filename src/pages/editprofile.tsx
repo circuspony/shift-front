@@ -1,44 +1,44 @@
-import { useForm } from 'react-hook-form';
+import React, { useState, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 
-type Profile = {
-    firstname: string
-    lastname: string
-    age: number
-}
+// import images from ";
+import From from '../components/ProfilePage/Form.tsx';
 
-function ProfileInfo() {
-    const {register, handleSubmit, formState: {errors}} = useForm<Profile>()
+const EditProfile: React.FC = () => {
+  const [, setFileUrl] = useState<string | null>(null);
 
-    const onSubmit = handleSubmit((data) => {
-        alert(JSON.stringify(data))
-    })
+  const onDrop = useCallback(async (acceptedFile: File[]) => {
+    setFileUrl(acceptedFile[0].toString());
+  }, []);
 
-    return(
-        <form onSubmit={onSubmit}>
-            <div>
-                <label htmlFor="firstname">First Name</label>
-                <input {...register('firstname',{ required: true })} id="firstname" name="firstname" type="text" />
-                {
-                    errors.firstname && <div className="error">Enter your name</div>
-                }
-            </div>
-            <div>
-                <label htmlFor="lastname">Last Name</label>
-                <input {...register('lastname',{ required: true })} id="lastname" name="lastname" type="text" />
-                {
-                    errors.lastname && <div className="error">Enter your name</div>
-                }
-            </div>
-            <div>
-                <label htmlFor="age">Age</label>
-                <input {...register('age',{ required: true })} id="age" name="age" type="text" />
-                {
-                    errors.age && <div className="error">Enter your age</div>
-                }
-            </div>
-            <button type="submit">Save</button>
-        </form>
-    );
-}
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
 
-export default ProfileInfo
+    maxSize: 5000000
+  });
+
+  return (
+    <div className='w-full m-24'>
+      <div className='w-1/2 my-0 mx-auto border-solid border-b-2'>
+        <h1 className='text-6xl pb-8'>Profile settings</h1>
+        <p className='text-xl w-4/5 pb-2'>
+          You can set preferred display name, create your profile URL and manage other personal
+          settings.
+        </p>
+      </div>
+
+      <div className='w-1/2 my-0 mx-auto grid grid-cols-2 mt-6 gap-6 items-start'>
+        <div className='mt-4 cursor-pointer relative text-center' {...getRootProps()}>
+          <input {...getInputProps()} />
+
+          <p className='font-bold text-base'>Change Image</p>
+        </div>
+        <div className=''>
+          <From />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default EditProfile;
