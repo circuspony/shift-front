@@ -10,7 +10,7 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boo
             <div className=" w-10 h-10 peer rounded-full cursor-pointer overflow-hidden">
                 <img src="/images/amogus.jpg" />
             </div>
-            <div className="absolute transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible border-custom-grey border-2 bg-white p-2 mt-4 rounded-md top-full -right-2">
+            <div className="absolute transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible border-custom-gray border-2 bg-white p-2 mt-4 rounded-md top-full -right-2">
                 <div
                     onClick={() => {
                     }

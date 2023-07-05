@@ -30,7 +30,7 @@ function SignIn() {
                 <div className="text-3xl mt-4 text-center">
                     Войти в аккаунт
                 </div>
-                <div className="flex flex-col w-full sm:w-auto xl:w-1/3 border-custom-grey border-2 sm:rounded-md mt-4 bg-gradient-bg">
+                <div className="flex flex-col w-full sm:w-auto xl:w-1/3 border-custom-gray border-2 sm:rounded-md mt-4 bg-gradient-bg">
                     <div className="mx-auto text-3xl mt-4">
                         Добро пожаловать!
                     </div>

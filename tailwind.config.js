@@ -6,9 +6,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        "button-green": "#D2E892",
-        "normal-green-text": "#364C6F",
-        "custom-grey": "rgb(230,230,230)",
+        "light-green": "#D2E892",
+        "dark-green": "#8CAA34",
+        "normal-text": "#364C6F",
+        "custom-gray": "rgb(230,230,230)",
+        "light-gray": "#D2DEEB",
         "input-border": "#D6E1E8"
       },
       backgroundImage: {
