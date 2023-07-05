@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
+import avatar from '../../components/images/cat.jpg';
 
 // import images from ";
-import From from '../components/ProfilePage/Form.tsx';
+import From from '../../components/ProfilePage/Form.tsx';
 
 const EditProfile: React.FC = () => {
   const [, setFileUrl] = useState<string | null>(null);
@@ -20,18 +21,22 @@ const EditProfile: React.FC = () => {
   return (
     <div className='w-full m-24'>
       <div className='w-1/2 my-0 mx-auto border-solid border-b-2'>
-        <h1 className='text-6xl pb-8'>Profile settings</h1>
+        <h1 className='text-6xl pb-8'>Настройки профиля</h1>
         <p className='text-xl w-4/5 pb-2'>
-          You can set preferred display name, create your profile URL and manage other personal
-          settings.
+          Вы можете установить имя и фамилию, ввести ссылку на ваш личный сайт и управлять другими
+          личными данными.
         </p>
       </div>
 
-      <div className='w-1/2 my-0 mx-auto grid grid-cols-2 mt-6 gap-6 items-start'>
+      <div className='w-1/2 my-0 mx-auto grid grid-cols-[1fr_5fr] mt-6 gap-6 items-start'>
         <div className='mt-4 cursor-pointer relative text-center' {...getRootProps()}>
           <input {...getInputProps()} />
-
-          <p className='font-bold text-base'>Change Image</p>
+          <img
+            src={avatar}
+            alt=''
+            className='w-36 h-36 mt-8 m-auto cursor-pointer rounded-full relative text-center justify-center'
+          />
+          <p className='font-bold text-base text-center'>Загрузить картинку</p>
         </div>
         <div className=''>
           <From />
