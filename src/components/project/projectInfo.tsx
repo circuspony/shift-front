@@ -18,17 +18,17 @@ function ProjectInfo({ project }: { project: Project }) {
                 <div className="project-info-tabs flex text-sm md:text-base overflow-x-scroll md:overflow-x-hidden overflow-hidden text-base w-full max-w-screen-xl mx-auto">
                     <div
                         onClick={() => setCurrentMode(ProjectInfoMode.DESCRIPTION)}
-                        className={`transition-all duration-300 font-medium py-6 border-b-4 cursor-pointer px-12 ${currentMode == ProjectInfoMode.DESCRIPTION ? "border-dark-green" : "border-gray-100 hover:border-gray-400 "}`}>
+                        className={`transition-all duration-300 font-medium py-6 border-b-4 cursor-pointer px-6 md:px-12 ${currentMode == ProjectInfoMode.DESCRIPTION ? "border-dark-green" : "border-gray-100 hover:border-gray-400 "}`}>
                         Описание
                     </div>
                     <div
                         onClick={() => setCurrentMode(ProjectInfoMode.NEWS)}
-                        className={`transition-all duration-300 font-medium py-6 border-b-4 cursor-pointer px-12 ${currentMode == ProjectInfoMode.NEWS ? "border-dark-green" : "border-gray-100 hover:border-gray-400 "}`}>
+                        className={`transition-all duration-300 font-medium py-6 border-b-4 cursor-pointer px-6 md:px-12 ${currentMode == ProjectInfoMode.NEWS ? "border-dark-green" : "border-gray-100 hover:border-gray-400 "}`}>
                         Новости
                     </div>
                     <div
                         onClick={() => setCurrentMode(ProjectInfoMode.SPONSORS)}
-                        className={`transition-all duration-300 font-medium py-6 border-b-4 cursor-pointer px-12 ${currentMode == ProjectInfoMode.SPONSORS ? "border-dark-green" : "border-gray-100 hover:border-gray-400 "}`}>
+                        className={`transition-all duration-300 font-medium py-6 border-b-4 cursor-pointer px-6 md:px-12 ${currentMode == ProjectInfoMode.SPONSORS ? "border-dark-green" : "border-gray-100 hover:border-gray-400 "}`}>
                         Участники
                     </div>
                 </div>
