@@ -14,16 +14,16 @@ function Header() {
             <div className='flex items-center max-w-screen-2xl w-full mx-auto py-4 px-8 2xl:px-0'>
 
                 <Link to="/" className="flex items-center text-normal-text hover:text-normal-text">
-                    <div className="w-12">
+                    <div className="w-8 md:w-12">
                         <PiggyIcon />
                     </div>
-                    <span className="text-3xl font-bold mt-1 ml-2">ДАЙДЕНЕГ!</span>
+                    <span className="text-xl md:text-3xl font-bold mt-1 ml-2">ДАЙДЕНЕГ!</span>
                 </Link>
-                {isSignedIn ? <>
+                {isSignedIn ? <div className="flex items-center ml-auto">
                     <UserBar
                         setIsSignedIn={setIsSignedIn}
                     />
-                </> :
+                </div> :
                     <ButtonWrapper onClick={() => {
                         navigate("/signin")
                     }} addonClass="flex py-2 px-8 ml-auto">
