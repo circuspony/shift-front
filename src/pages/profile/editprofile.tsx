@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { useDropzone } from 'react-dropzone';
 import avatar from '../../components/images/cat.jpg';
 
@@ -19,7 +19,7 @@ const EditProfile: React.FC = () => {
   });
 
   return (
-    <div className='w-full m-24'>
+    <div className='w-full my-24'>
       <div className='w-1/2 my-0 mx-auto border-solid border-b-2'>
         <h1 className='text-6xl pb-8'>Настройки профиля</h1>
         <p className='text-xl w-4/5 pb-2'>
@@ -28,15 +28,17 @@ const EditProfile: React.FC = () => {
         </p>
       </div>
 
-      <div className='w-1/2 my-0 mx-auto grid grid-cols-[1fr_5fr] mt-6 gap-6 items-start'>
-        <div className='mt-4 cursor-pointer relative text-center' {...getRootProps()}>
+      <div className='w-1/2 my-0 mx-auto grid-cols-[1fr_5fr] grid-flow-col md:flex justify-between mt-6 gap-6 items-start'>
+        <div className='mt-4 relative text-center'>
           <input {...getInputProps()} />
           <img
             src={avatar}
             alt=''
-            className='w-36 h-36 mt-8 m-auto cursor-pointer rounded-full relative text-center justify-center'
+            className='w-36 h-36 mt-8 m-auto rounded-full relative text-center justify-center'
           />
-          <p className='font-bold text-base text-center'>Загрузить картинку</p>
+          <p className='font-bold text-base text-center cursor-pointer' {...getRootProps()}>
+            Загрузить картинку
+          </p>
         </div>
         <div className=''>
           <From />

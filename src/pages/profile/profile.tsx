@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext, { UserContextProvider } from '../../components/context/userContext';
 import avatar from '../../components/images/cat.jpg';
 
 interface ProfileProps {
-  name: string;
+  firstname: string;
+  lastname: string;
   age: number;
   // city: string;
   followers: number;
@@ -12,6 +14,8 @@ interface ProfileProps {
 }
 
 const Profile: React.FC<ProfileProps> = (props) => {
+  const { userInfo } = useContext(UserContext);
+
   return (
     <div className='w-full h-full flex flex-col items-center'>
       <div className='bg-slate-900 w-1/2 h-auto rounded-2xl grid grid-cols-2'>
@@ -19,14 +23,14 @@ const Profile: React.FC<ProfileProps> = (props) => {
           <header>
             <img
               src={avatar}
-              alt={props.name}
+              alt=''
               className='m-auto w-36 h-36 border-solid border-white rounded-full mt-20'
             />
           </header>
           <h1 className='font-bold text-lg text-center text-white p-2'>
-            {props.name}{' '}
-            <span className='font-normal text-base text-center text-white pb-2'>{props.age}</span>
+            {userInfo.firstname} {userInfo.lastname}
           </h1>
+          <div className='font-normal text-base text-center text-white pb-2'>{props.age}</div>
           {/* // <h2 className='font-normal text-base text-center text-white pb-2'>{props.city}</h2> */}
           <div className='flex text-center items-center justify-center'>
             <div className='followers'>
