@@ -19,3 +19,14 @@ export interface Creator {
     avatar: string
     projectNumber: number
 }
+
+export interface Profile {
+    firstname: string
+    lastname: string
+    description: string
+    personalWebLink: string
+    facebookLink: string
+    twitterLink: string
+    instagramLink: string
+    projects: number
+}
