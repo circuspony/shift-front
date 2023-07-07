@@ -9,6 +9,8 @@ import SignUp from './pages/signup';
 import { UserContextProvider } from './components/context/userContext';
 import { useEffect, useState } from 'react';
 import Cookies from 'universal-cookie';
+import Project from './pages/project';
+import Balance from './pages/balance';
 
 function App() {
   const [token, setToken] = useState(undefined)
@@ -26,6 +28,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/project/:id" element={<Project />} />;
+          <Route path="/balance" element={<Balance />} />;
           <Route path={"*"} element={<Home />} />
         </Routes>
       </UserContextProvider>

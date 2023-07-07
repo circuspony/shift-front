@@ -34,9 +34,9 @@ function SignUp() {
         <div className="flex w-full max-w-screen-2xl mx-auto">
             <div className='flex flex-col w-full items-center'>
                 <div className="text-3xl mt-4 text-center">
-                    Зарегистрироваться
+                    Регистрация
                 </div>
-                <div className="flex flex-col w-full sm:w-auto xl:w-1/3 border-custom-grey border-2 sm:rounded-md mt-4 bg-gradient-bg">
+                <div className="flex flex-col w-full sm:w-auto xl:w-1/3 border-custom-gray border-2 sm:rounded-md mt-4 bg-gradient-bg">
                     <div className="mx-auto text-xl mt-4">
                         Заполните необходимые поля
                     </div>
@@ -47,7 +47,7 @@ function SignUp() {
                                 <PersonIcon />
                             </div>
                             <input
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("firstName", {
                                     required: "Необходимо ввести имя"
                                 })}
@@ -60,7 +60,7 @@ function SignUp() {
                                 <PersonIcon />
                             </div>
                             <input
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("middleName")}
                                 placeholder="Ваше отчество" />
                         </div>
@@ -70,7 +70,7 @@ function SignUp() {
                                 <PersonIcon />
                             </div>
                             <input
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("lastName", {
                                     required: "Необходимо ввести фамилию"
                                 })}
@@ -84,7 +84,7 @@ function SignUp() {
                             </div>
                             <input
                                 type="email"
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("email", {
                                     required: "Email обязателен",
                                     validate: {
@@ -104,7 +104,7 @@ function SignUp() {
                             </div>
                             <input
                                 type="password"
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("password", {
                                     required: "Пароль обязателен",
                                     validate: {
@@ -121,7 +121,7 @@ function SignUp() {
                             </div>
                             <input
                                 type="password"
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("confirmPassword", {
                                     required: "Проверка обязательна",
                                     validate: {
@@ -134,7 +134,7 @@ function SignUp() {
                                 placeholder="Подтвердите пароль" />
                         </div>
                         {errors?.confirmPassword?.message ? <p className="ml-20 mt-4 text-red-500 text-sm">{errors?.confirmPassword?.message.toString()}</p> : null}
-                        <div className="flex w-full pr-8 pl-20 py-4">
+                        <div className="flex w-full pr-6 pl-20 py-4">
                             <ButtonWrapper
                                 type="submit"
                                 addonClass="py-4 text-xl w-full">
