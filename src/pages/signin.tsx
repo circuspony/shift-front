@@ -28,14 +28,11 @@ function SignIn() {
         <div className="flex w-full max-w-screen-2xl mx-auto">
             <div className='flex items-center flex-col w-full'>
                 <div className="text-3xl mt-4 text-center">
-                    Войти в аккаунт
+                    Добро пожаловать!
                 </div>
                 <div className="flex flex-col w-full sm:w-auto xl:w-1/3 border-custom-gray border-2 sm:rounded-md mt-4 bg-gradient-bg">
-                    <div className="mx-auto text-3xl mt-4">
-                        Добро пожаловать!
-                    </div>
                     <div className="mx-auto text-xl mt-4">
-                        Заполните поля
+                        Заполните необходимые поля
                     </div>
 
                     <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
@@ -45,7 +42,7 @@ function SignIn() {
                             </div>
                             <input
                                 type="email"
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("email", {
                                     required: "Email обязателен",
                                     validate: {
@@ -65,7 +62,7 @@ function SignIn() {
                             </div>
                             <input
                                 type="password"
-                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-8"
+                                className="w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mr-6"
                                 {...register("password", {
                                     required: "Пароль обязателен",
                                     validate: {
@@ -76,7 +73,7 @@ function SignIn() {
                                 placeholder="Пароль" />
                         </div>
                         {errors?.password?.message ? <p className="ml-20 mt-4 text-red-500 text-sm">{errors?.password?.message.toString()}</p> : null}
-                        <div className="flex w-full pr-8 pl-20 py-4">
+                        <div className="flex w-full pr-6 pl-20 py-4">
                             <ButtonWrapper
                                 type="submit"
                                 addonClass="py-4 text-xl w-full">

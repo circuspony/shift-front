@@ -2,6 +2,8 @@
 //     useParams,
 // } from "react-router-dom";
 import ProjectCard from "../components/project/project";
+import { useLocation } from "react-router-dom";
+import { useEffect } from 'react';
 
 const project = {
     name: "Дайте денег на выпивку",
@@ -26,6 +28,10 @@ const project = {
 
 function ProjectPage() {
     // let params = useParams();
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <>
             <ProjectCard
