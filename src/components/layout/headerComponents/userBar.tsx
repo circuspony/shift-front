@@ -4,9 +4,10 @@ import Cookies from 'universal-cookie';
 import SettingsIcon from "../../svg/settingsIcon";
 import CoinIcon from "../../svg/coinIcon";
 import WalletIcon from "../../svg/walletIcon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boolean>> }) {
+    const navigate = useNavigate();
     return (
         <>
             <div className="flex flex-col mr-4">
@@ -24,14 +25,14 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boo
                 </Link>
             </div>
             <div className='group relative'>
-                <div className=" w-10 h-10 rounded-full cursor-pointer overflow-hidden">
+                <div
+                    onClick={() => navigate("/profile")}
+                    className=" w-10 h-10 rounded-full cursor-pointer overflow-hidden">
                     <img src="/images/amogus.jpg" />
                 </div>
                 <div className="absolute transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible border-custom-gray border-2 bg-white p-2 mt-8 rounded-md top-full -right-2">
                     <div
-                        onClick={() => {
-                        }
-                        }
+                        onClick={() => navigate("/editprofile")}
                         className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
                         <div className="w-5 h-5">
                             <SettingsIcon />
@@ -44,6 +45,7 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boo
                             const cookies = new Cookies();
                             cookies.remove("token")
                             setIsSignedIn(false)
+                            navigate("/")
                         }
                         }
                         className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
