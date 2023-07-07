@@ -26,7 +26,15 @@ export const UserContextProvider = ({
   children: ReactElement[];
 }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState({ firstname: 'zal', lastname: 'upa' });
+  const [userInfo, setUserInfo] = useState({
+    firstname: 'Тони',
+    lastname: 'Старк',
+    description: 'Миллионер, криптоинвестор, плейбой',
+    personalWebLink: '',
+    facebookLink: '',
+    twitterLink: '',
+    instagramLink: ''
+  });
   useEffect(() => {
     if (token != undefined) {
       setIsSignedIn(true);

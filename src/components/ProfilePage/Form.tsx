@@ -5,7 +5,7 @@ import UserContext from '../../components/context/userContext';
 import { useForm, FieldValues } from 'react-hook-form';
 
 import { HiOutlineMail } from 'react-icons/hi';
-import { MdOutlineHttp } from 'react-icons/md';
+import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
 
 //INTERNAL IMPORT
@@ -71,12 +71,12 @@ const Form = (): JSX.Element => {
               Описание
             </label>
             <textarea
-              name=''
               id=''
               cols={30}
               rows={6}
               placeholder='Расскажите о себе'
               className='w-full bg-transparent outline-none rounded-2xl p-4 border-solid border-2'
+              {...register('description')}
             ></textarea>
           </div>
 
@@ -86,30 +86,32 @@ const Form = (): JSX.Element => {
             </label>
             <div className='w-full border-solid border-2 rounded-2xl items-center flex gap-4 mt-2 overflow-hidden'>
               <div className='text-3xl py-2 pl-4 grid cursor-pointer'>
-                <MdOutlineHttp />
+                <IoMdPlanet />
               </div>
 
               <input
                 type='text'
                 placeholder='Введите вашу ссылку'
                 className='w-full p-4 rounded-2xl bg-transparent outline-none'
+                {...register('personalWebLink')}
               />
             </div>
           </div>
 
           <div className='grid grid-cols-3 gap-4'>
             <div className='mt-8'>
-              <label htmlFor='Facebook' className='block w-full ml-4 font-bold text-3xl'>
-                Facebook
+              <label htmlFor='Instragram' className='block w-full ml-4 font-bold text-3xl'>
+                Instragram
               </label>
               <div className='w-full border-solid border-2 rounded-2xl items-center flex gap-2 mt-2 overflow-hidden'>
                 <div className='text-3xl py-2 pl-4 grid cursor-pointer'>
-                  <TiSocialFacebook />
+                  <TiSocialInstagram />
                 </div>
                 <input
                   type='text'
                   placeholder='Ваша ссылка'
                   className='w-full p-4 rounded-2xl bg-transparent outline-none'
+                  {...register('instagramLink')}
                 />
               </div>
             </div>
@@ -125,29 +127,32 @@ const Form = (): JSX.Element => {
                   type='text'
                   placeholder='Ваша ссылка'
                   className='w-full p-4 rounded-2xl bg-transparent outline-none'
+                  {...register('twitterLink')}
                 />
               </div>
             </div>
+
             <div className='mt-8'>
-              <label htmlFor='Instragram' className='block w-full ml-4 font-bold text-3xl'>
-                Instragram
+              <label htmlFor='Facebook' className='block w-full ml-4 font-bold text-3xl'>
+                Facebook
               </label>
               <div className='w-full border-solid border-2 rounded-2xl items-center flex gap-2 mt-2 overflow-hidden'>
                 <div className='text-3xl py-2 pl-4 grid cursor-pointer'>
-                  <TiSocialInstagram />
+                  <TiSocialFacebook />
                 </div>
                 <input
                   type='text'
                   placeholder='Ваша ссылка'
                   className='w-full p-4 rounded-2xl bg-transparent outline-none'
+                  {...register('facebookLink')}
                 />
               </div>
             </div>
           </div>
 
           <div className='flex w-full py-4'>
-            <ButtonWrapper type='submit' addonClass='py-4 text-xl w-full'>
-              <span className='mx-auto'>Обновить</span>
+            <ButtonWrapper type='submit' addonClass='py-4 text-xl w-full bg-slate-700'>
+              <span className='mx-auto text-white'>Обновить</span>
             </ButtonWrapper>
           </div>
         </form>

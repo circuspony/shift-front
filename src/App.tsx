@@ -30,7 +30,7 @@ function App() {
               <Profile
                 name={'Abdul Medvedov'}
                 age={30}
-                // city={'Lil town'}
+                city={'Lil town'}
                 followers={0}
                 likes={0}
                 photos={0}
