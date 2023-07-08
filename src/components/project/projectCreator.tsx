@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom"
-import { Creator } from "../interfaces"
+import { Creator } from "../../utils/types"
 
 function ProjectCreator({ creator }: { creator: Creator }) {
     return (

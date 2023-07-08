@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { Project } from "../../interfaces"
+import { Project } from "../../../utils/types"
 import CoinIcon from "../../svg/coinIcon"
 
 function SmallProjectCard({ project }: { project: Project }) {

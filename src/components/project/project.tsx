@@ -1,7 +1,7 @@
 
 import SmallStatusBar from "./smallStatusBar"
 import { Helmet } from "react-helmet";
-import { Project } from "../interfaces";
+import { Project } from "../../utils/types";
 import ProgressPanel from "./progressPanel";
 import ProjectCreator from "./projectCreator";
 import ProjectInfo from "./projectInfo";

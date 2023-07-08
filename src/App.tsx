@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 import './App.css';
 import router from "./router"
-import { UserContextProvider } from './components/context/userContext';
+import { UserContextProvider } from './context/userContext';
 import {
   RouterProvider,
 } from "react-router-dom";

@@ -1,6 +1,6 @@
-import ButtonWrapper from "../../inputs/buttonWrapper"
+import Button from "../../button/button"
 import { useContext } from "react";
-import UserContext from "../../context/userContext";
+import UserContext from "../../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
 import UserBar from "./userBar";
 import PiggyIcon from "../../svg/piggyIcon";
@@ -8,7 +8,6 @@ import PiggyIcon from "../../svg/piggyIcon";
 function Header() {
     const { isSignedIn, setIsSignedIn } = useContext(UserContext)
     const navigate = useNavigate();
-
     return (
         <header className="bg-white w-full">
             <div className='flex items-center max-w-screen-2xl w-full mx-auto py-4 px-8 2xl:px-0'>
@@ -24,11 +23,11 @@ function Header() {
                         setIsSignedIn={setIsSignedIn}
                     />
                 </div> :
-                    <ButtonWrapper onClick={() => {
+                    <Button onClick={() => {
                         navigate("/signin")
                     }} addonClass="flex py-2 px-8 ml-auto">
                         <div>{"Войти"}</div>
-                    </ButtonWrapper>}
+                    </Button>}
             </div>
         </header>
 

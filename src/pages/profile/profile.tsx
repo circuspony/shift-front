@@ -1,11 +1,9 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import UserContext from '../../components/context/userContext';
+import UserContext from '../../context/userContext';
 import { MdSettings } from 'react-icons/md';
 import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
-import avatar from '../../components/images/cat.jpg';
-
 
 const Profile = () => {
   const { userInfo } = useContext(UserContext);
@@ -15,7 +13,7 @@ const Profile = () => {
       <div className='bg-slate-900 w-1/3 min-h-[200px] rounded-2xl'>
         <div className='flex p-4 m-4 relative items-center'>
           <img
-            src={avatar}
+            src={"/images/cat.jpg"}
             alt=''
             className='flex w-36 h-36 border-solid border-white rounded-full'
           />
@@ -54,7 +52,7 @@ const Profile = () => {
               {userInfo.description}{' '}
             </div>
           </div>
-          <Link to='/editprofile' className='text-white absolute top-0 right-0'>
+          <Link to='/profile/edit' className='text-white absolute top-0 right-0'>
             <MdSettings size={28} />
           </Link>
         </div>

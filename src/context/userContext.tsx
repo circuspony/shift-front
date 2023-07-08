@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, Dispatch, SetStateAction, useEffect } from 'react';
-import { Profile } from '../interfaces';
+import { Profile } from '../utils/types';
 import Cookies from 'universal-cookie';
 
 interface iUserContext {

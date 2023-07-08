@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import avatar from '../../components/images/cat.jpg';
 
 // import images from ";
-import From from '../../components/ProfilePage/Form.tsx';
+import From from '../../components/profilePage/Form.tsx';
 
 const EditProfile: React.FC = () => {
   const [, setFileUrl] = useState<string | null>(null);
@@ -32,7 +31,7 @@ const EditProfile: React.FC = () => {
         <div className='mt-4 relative text-center'>
           <input {...getInputProps()} />
           <img
-            src={avatar}
+            src={"/images/cat.jpg"}
             alt=''
             className='w-36 h-36 mt-8 m-auto rounded-full relative text-center justify-center'
           />

@@ -1,9 +1,9 @@
 import { useForm, FieldValues } from "react-hook-form";
 import EmailIcon from "../components/svg/emailicon";
 import PasswordIcon from "../components/svg/passwordIcon";
-import ButtonWrapper from "../components/inputs/buttonWrapper";
+import Button from "../components/button/button";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import UserContext from "../components/context/userContext";
+import UserContext from "../context/userContext";
 import { useContext, useRef } from "react";
 import Cookies from 'universal-cookie';
 import PersonIcon from "../components/svg/personIcon";
@@ -135,13 +135,13 @@ function SignUp() {
                         </div>
                         {errors?.confirmPassword?.message ? <p className="ml-20 mt-4 text-red-500 text-sm">{errors?.confirmPassword?.message.toString()}</p> : null}
                         <div className="flex w-full pr-6 pl-20 py-4">
-                            <ButtonWrapper
+                            <Button
                                 type="submit"
                                 addonClass="py-4 text-xl w-full">
                                 <span className="mx-auto">
                                     Зарегистрироваться
                                 </span>
-                            </ButtonWrapper>
+                            </Button>
                         </div>
                     </form>
 

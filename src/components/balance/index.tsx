@@ -1,8 +1,8 @@
-import UserContext from "../context/userContext";
+import UserContext from "../../context/userContext";
 import { useContext, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useForm, FieldValues } from "react-hook-form";
-import ButtonWrapper from "../inputs/buttonWrapper";
+import Button from "../button/button";
 import CoinIcon from "../svg/coinIcon";
 
 function Balance() {
@@ -63,13 +63,13 @@ function Balance() {
                                 </div>
                                 {errors?.promo?.message ? <p className="ml-8 mt-4 text-red-500 text-sm">{errors?.promo?.message.toString()}</p> : null}
                                 <div className="flex w-full px-8 py-4">
-                                    <ButtonWrapper
+                                    <Button
                                         type="submit"
                                         addonClass="py-4 text-xl w-full">
                                         <span className="mx-auto">
                                             Отправить код
                                         </span>
-                                    </ButtonWrapper>
+                                    </Button>
                                 </div>
                             </form>
                         </>

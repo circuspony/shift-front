@@ -1,4 +1,4 @@
-import { Project } from "../interfaces"
+import { Project } from "../../utils/types"
 import { useState } from 'react'
 import ProjectDescription from "./projectDescription"
 import ProjectSponsors from "./projectSponsors"

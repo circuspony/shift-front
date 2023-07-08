@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../../components/context/userContext';
+import UserContext from '../../context/userContext.tsx';
 import { useForm, FieldValues } from 'react-hook-form';
 import { HiOutlineMail } from 'react-icons/hi';
 import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
-
-//INTERNAL IMPORT
-import ButtonWrapper from '../inputs/buttonWrapper.tsx';
+import Button from '../button/button.tsx';
 
 const Form = (): JSX.Element => {
   const { userInfo, setUserInfo } = useContext(UserContext);
@@ -161,9 +159,9 @@ const Form = (): JSX.Element => {
           </div>
 
           <div className='flex w-full py-4'>
-            <ButtonWrapper type='submit' addonClass='py-4 text-xl w-full bg-slate-700'>
+            <Button type='submit' addonClass='py-4 text-xl w-full bg-slate-700'>
               <span className='mx-auto text-white'>Обновить</span>
-            </ButtonWrapper>
+            </Button>
           </div>
         </form>
       </div>

@@ -1,9 +1,9 @@
 import ChecListIcon from "../svg/checkListIcon";
 import CoinIcon from "../svg/coinIcon";
 const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
-import { Project } from "../interfaces";
-import ButtonWrapper from "../inputs/buttonWrapper";
-import UserContext from "../context/userContext";
+import { Project } from "../../utils/types";
+import Button from "../button/button";
+import UserContext from "../../context/userContext";
 import { useContext } from "react";
 import { calculateTime } from "../../utils/calculateTime";
 
@@ -47,12 +47,12 @@ function ProgressPanel({ project }: { project: Project }) {
             </div>
             {isSignedIn ? <>
                 <div className="flex w-full mt-4">
-                    <ButtonWrapper
+                    <Button
                         addonClass="py-3 text-xl w-full">
                         <span className="mx-auto">
                             Поддержать проект
                         </span>
-                    </ButtonWrapper>
+                    </Button>
                 </div>
             </> : <></>}
             <div className="flex text-sm items-center mt-4 mx-auto cursor-pointer">
