@@ -10,7 +10,7 @@ function Header() {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-white w-full">
+        <header className="bg-white w-full">
             <div className='flex items-center max-w-screen-2xl w-full mx-auto py-4 px-8 2xl:px-0'>
 
                 <Link to="/" className="flex items-center text-normal-text hover:text-normal-text">
@@ -30,7 +30,7 @@ function Header() {
                         <div>{"Войти"}</div>
                     </ButtonWrapper>}
             </div>
-        </div>
+        </header>
 
     )
 }

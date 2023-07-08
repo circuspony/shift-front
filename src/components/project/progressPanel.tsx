@@ -5,7 +5,7 @@ import { Project } from "../interfaces";
 import ButtonWrapper from "../inputs/buttonWrapper";
 import UserContext from "../context/userContext";
 import { useContext } from "react";
-import { calculateTime } from "../../utils";
+import { calculateTime } from "../../utils/calculateTime";
 
 function ProgressPanel({ project }: { project: Project }) {
 

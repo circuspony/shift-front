@@ -1,5 +1,6 @@
-import React, { ReactElement, useState, Dispatch, SetStateAction, useEffect } from 'react';
+import React, { ReactNode, useState, Dispatch, SetStateAction, useEffect } from 'react';
 import { Profile } from '../interfaces';
+import Cookies from 'universal-cookie';
 
 interface iUserContext {
   isSignedIn: boolean;
@@ -27,19 +28,20 @@ const UserContext = React.createContext<iUserContext>({
 });
 
 export const UserContextProvider = ({
-  token = undefined,
   children
 }: {
-  token: string | undefined;
-  children: ReactElement[];
+  children: ReactNode;
 }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [userInfo, setUserInfo] = useState(defaultProfile);
+
   useEffect(() => {
-    if (token != undefined) {
+    const cookies = new Cookies()
+    if (cookies.get('token')) {
       setIsSignedIn(true);
     }
-  }, [token]);
+  }, []);
+
   return (
     <UserContext.Provider
       value={{

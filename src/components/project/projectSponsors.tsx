@@ -1,5 +1,5 @@
 import CoinIcon from "../svg/coinIcon"
-import { calculateTime } from "../../utils";
+import { calculateTime } from "../../utils/calculateTime";
 
 const sponsors = new Array(4).fill({
     name: "Андреус Андреус",

@@ -32,7 +32,7 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boo
                 </div>
                 <div className="absolute transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible border-custom-gray border-2 bg-white p-2 mt-8 rounded-md top-full -right-2">
                     <div
-                        onClick={() => navigate("/editprofile")}
+                        onClick={() => navigate("/profile/edit")}
                         className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
                         <div className="w-5 h-5">
                             <SettingsIcon />
