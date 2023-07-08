@@ -3,13 +3,12 @@ import EmailIcon from "../components/svg/emailicon";
 import PasswordIcon from "../components/svg/passwordIcon";
 import Button from "../components/button/button";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import UserContext from "../context/userContext";
-import { useContext } from "react";
 import Cookies from 'universal-cookie';
+import useAuth from "../hooks/useAuth";
 
 function SignIn() {
   const { register, formState: { errors }, handleSubmit } = useForm({});
-  const { isSignedIn, setIsSignedIn } = useContext(UserContext)
+  const { isSignedIn, setIsSignedIn } = useAuth()
   const navigate = useNavigate();
   const onSubmit = (data: FieldValues) => {
     console.log(data)

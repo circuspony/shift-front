@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import UserContext from '../../context/userContext';
 import { MdSettings } from 'react-icons/md';
 import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
+import useAuth from '../../hooks/useAuth';
 
 const Profile = () => {
-  const { userInfo } = useContext(UserContext);
+  const { userInfo } = useAuth();
 
   return (
     <div className='w-full h-full flex flex-col items-center'>

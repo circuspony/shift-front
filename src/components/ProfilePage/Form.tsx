@@ -1,14 +1,13 @@
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../../context/userContext.tsx';
 import { useForm, FieldValues } from 'react-hook-form';
 import { HiOutlineMail } from 'react-icons/hi';
 import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
 import Button from '../button/button.tsx';
+import useAuth from '../../hooks/useAuth.ts';
 
 const Form = (): JSX.Element => {
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { userInfo, setUserInfo } = useAuth();
   const {
     register,
     // formState: { errors },

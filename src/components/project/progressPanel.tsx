@@ -3,14 +3,11 @@ import CoinIcon from "../svg/coinIcon";
 const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
 import { Project } from "../../utils/types";
 import Button from "../button/button";
-import UserContext from "../../context/userContext";
-import { useContext } from "react";
 import { calculateTime } from "../../utils/calculateTime";
+import useAuth from "../../hooks/useAuth";
 
 function ProgressPanel({ project }: { project: Project }) {
-
-    const { isSignedIn } = useContext(UserContext)
-
+    const { isSignedIn } = useAuth()
     return (
         <>
             <div className="flex items-center">

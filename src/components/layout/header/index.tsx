@@ -1,12 +1,11 @@
 import Button from "../../button/button"
-import { useContext } from "react";
-import UserContext from "../../../context/userContext";
 import { Link, useNavigate } from "react-router-dom";
 import UserBar from "./userBar";
 import PiggyIcon from "../../svg/piggyIcon";
+import useAuth from "../../../hooks/useAuth";
 
 function Header() {
-    const { isSignedIn, setIsSignedIn } = useContext(UserContext)
+    const { isSignedIn, setIsSignedIn } = useAuth()
     const navigate = useNavigate();
     return (
         <header className="bg-white w-full">

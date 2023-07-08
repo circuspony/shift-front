@@ -3,14 +3,14 @@ import EmailIcon from "../components/svg/emailicon";
 import PasswordIcon from "../components/svg/passwordIcon";
 import Button from "../components/button/button";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import UserContext from "../context/userContext";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import Cookies from 'universal-cookie';
 import PersonIcon from "../components/svg/personIcon";
+import useAuth from "../hooks/useAuth";
 
 function SignUp() {
     const { register, formState: { errors }, handleSubmit, watch } = useForm({});
-    const { isSignedIn, setIsSignedIn } = useContext(UserContext)
+    const { isSignedIn, setIsSignedIn } = useAuth()
 
     const password = useRef({});
     password.current = watch("password", "");

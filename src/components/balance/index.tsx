@@ -1,12 +1,13 @@
-import UserContext from "../../context/userContext";
-import { useContext, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { useForm, FieldValues } from "react-hook-form";
 import Button from "../button/button";
 import CoinIcon from "../svg/coinIcon";
+import { useState } from "react";
+import { useForm, FieldValues } from "react-hook-form";
+import { Navigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+
 
 function Balance() {
-    const { isSignedIn } = useContext(UserContext)
+    const { isSignedIn } = useAuth()
     const [success, setSuccess] = useState(false)
     const { register, formState: { errors }, handleSubmit, setError, reset } = useForm({});
     const onSubmit = (data: FieldValues) => {
