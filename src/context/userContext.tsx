@@ -2,9 +2,10 @@ import React, { ReactNode, useState, Dispatch, SetStateAction, useEffect } from 
 import { Profile } from '../utils/types';
 import Cookies from 'universal-cookie';
 
+type AuthStatus = boolean | undefined
 interface iUserContext {
-  isSignedIn: boolean;
-  setIsSignedIn: Dispatch<SetStateAction<boolean>>;
+  isSignedIn?: AuthStatus;
+  setIsSignedIn: Dispatch<SetStateAction<AuthStatus>>;
   userInfo: Profile;
   setUserInfo: Dispatch<SetStateAction<Profile>>;
 }
@@ -32,13 +33,16 @@ export const UserContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [isSignedIn, setIsSignedIn] = useState<AuthStatus>(undefined);
   const [userInfo, setUserInfo] = useState(defaultProfile);
 
   useEffect(() => {
     const cookies = new Cookies()
     if (cookies.get('token')) {
       setIsSignedIn(true);
+    }
+    else {
+      setIsSignedIn(false)
     }
   }, []);
 

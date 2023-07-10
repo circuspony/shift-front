@@ -1,9 +1,10 @@
 import Balance from "../pages/balance";
 import EditProfile from "../pages/profile/editprofile";
 import Home from "../pages/home";
+import Layout from "../components/layout";
 import Profile from "../pages/profile/profile";
 import Project from "../pages/project";
-import Layout from "../components/layout";
+import { ProtectedRoute } from "./protectedRoute";
 import SignIn from "../pages/signin";
 import SignUp from "../pages/signup";
 import {
@@ -16,15 +17,21 @@ const router = createBrowserRouter(
         children: [
             {
                 path: "balance",
-                element: <Balance />,
+                element: <ProtectedRoute>
+                    <Balance />
+                </ProtectedRoute>
             },
             {
                 path: "profile",
-                element: <Profile />,
+                element: <ProtectedRoute>
+                    <Profile />
+                </ProtectedRoute>
             },
             {
                 path: "profile/edit",
-                element: <EditProfile />,
+                element: <ProtectedRoute>
+                    <EditProfile />
+                </ProtectedRoute>
             },
             {
                 path: "project/:id",
@@ -32,11 +39,15 @@ const router = createBrowserRouter(
             },
             {
                 path: "signin",
-                element: <SignIn />,
+                element: <ProtectedRoute needLogin={false}>
+                    <SignIn />
+                </ProtectedRoute>
             },
             {
                 path: "signup",
-                element: <SignUp />,
+                element: <ProtectedRoute needLogin={false}>
+                    <SignUp />
+                </ProtectedRoute>
             },
             {
                 path: "*",
