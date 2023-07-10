@@ -1,17 +1,4 @@
-export interface Project {
-    name: string
-    shortDescription: string
-    fullDescription: string
-    image: string
-    finished: boolean
-    needed: number
-    collected: number
-    sponsors: number
-    startDate: Date
-    endDate: Date
-    category: string
-    creator: Creator
-}
+export type AuthStatus = boolean | undefined
 
 export interface Creator {
     firstName: string
@@ -29,4 +16,19 @@ export interface Profile {
     twitterLink: string
     instagramLink: string
     projects: number
+}
+
+export interface Project {
+    name: string
+    shortDescription: string
+    fullDescription: string
+    image: string
+    finished: boolean
+    needed: number
+    collected: number
+    sponsors: number
+    startDate: Date
+    endDate: Date
+    category: string
+    creator: Creator
 }

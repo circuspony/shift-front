@@ -1,12 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 import ExitIcon from "../../svg/exiticon";
-import Cookies from 'universal-cookie';
 import SettingsIcon from "../../svg/settingsIcon";
 import CoinIcon from "../../svg/coinIcon";
 import WalletIcon from "../../svg/walletIcon";
 import { Link, useNavigate } from "react-router-dom";
+import cookies from "../../../utils/cookies";
+import { AuthStatus } from "../../../utils/types";
 
-function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boolean>> }) {
+function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<AuthStatus>> }) {
     const navigate = useNavigate();
     return (
         <>
@@ -42,7 +43,6 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<boo
 
                     <div
                         onClick={() => {
-                            const cookies = new Cookies();
                             cookies.remove("token")
                             setIsSignedIn(false)
                             navigate("/")

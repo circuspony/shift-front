@@ -1,8 +1,8 @@
 import React, { ReactNode, useState, Dispatch, SetStateAction, useEffect } from 'react';
 import { Profile } from '../utils/types';
-import Cookies from 'universal-cookie';
+import cookies from '../utils/cookies';
+import { AuthStatus } from '../utils/types';
 
-type AuthStatus = boolean | undefined
 interface iUserContext {
   isSignedIn?: AuthStatus;
   setIsSignedIn: Dispatch<SetStateAction<AuthStatus>>;
@@ -37,7 +37,6 @@ export const UserContextProvider = ({
   const [userInfo, setUserInfo] = useState(defaultProfile);
 
   useEffect(() => {
-    const cookies = new Cookies()
     if (cookies.get('token')) {
       setIsSignedIn(true);
     }

@@ -4,9 +4,9 @@ import PasswordIcon from "../components/svg/passwordIcon";
 import Button from "../components/button/button";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useRef } from "react";
-import Cookies from 'universal-cookie';
 import PersonIcon from "../components/svg/personIcon";
 import useAuth from "../hooks/useAuth";
+import cookies from "../utils/cookies";
 
 function SignUp() {
     const { register, formState: { errors }, handleSubmit, watch } = useForm({});
@@ -19,7 +19,6 @@ function SignUp() {
     const navigate = useNavigate();
     const onSubmit = (data: FieldValues) => {
         console.log(data)
-        const cookies = new Cookies();
         cookies.set('token', '123', { path: '/' });
         navigate("/")
         setIsSignedIn(true)

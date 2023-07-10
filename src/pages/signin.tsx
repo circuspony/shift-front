@@ -3,8 +3,8 @@ import EmailIcon from "../components/svg/emailicon";
 import PasswordIcon from "../components/svg/passwordIcon";
 import Button from "../components/button/button";
 import { Link, useNavigate, Navigate } from "react-router-dom";
-import Cookies from 'universal-cookie';
 import useAuth from "../hooks/useAuth";
+import cookies from "../utils/cookies";
 
 function SignIn() {
   const { register, formState: { errors }, handleSubmit } = useForm({});
@@ -12,7 +12,6 @@ function SignIn() {
   const navigate = useNavigate();
   const onSubmit = (data: FieldValues) => {
     console.log(data)
-    const cookies = new Cookies();
     cookies.set('token', '123', { path: '/' });
     navigate("/")
     setIsSignedIn(true)
