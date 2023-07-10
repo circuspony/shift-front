@@ -2,25 +2,29 @@ import { useForm, FieldValues } from "react-hook-form";
 import EmailIcon from "../components/svg/emailicon";
 import PasswordIcon from "../components/svg/passwordIcon";
 import Button from "../components/button";
-import { Link, useNavigate, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import cookies from "../utils/cookies";
+import { useState } from "react";
+import { loginUser } from "../api/loginUse";
 
 function SignIn() {
+  const [submitError, setSubmitError] = useState("")
+
   const { register, formState: { errors }, handleSubmit } = useForm({});
-  const { isSignedIn, setIsSignedIn } = useAuth()
+  const { setIsSignedIn } = useAuth()
   const navigate = useNavigate();
-  const onSubmit = (data: FieldValues) => {
-    console.log(data)
-    cookies.set('token', '123', { path: '/' });
-    navigate("/")
-    setIsSignedIn(true)
-  }
-  if (isSignedIn) {
-    return <>
-      <Navigate to="/" replace={true}
-      />
-    </>
+  const onSubmit = async (data: FieldValues) => {
+    const responseStatus = await loginUser({
+      email: data.email,
+      password: data.password
+    })
+    if (responseStatus.success) {
+      navigate("/")
+      setIsSignedIn(true)
+    }
+    else {
+      setSubmitError(responseStatus.message)
+    }
   }
   return (
     <div className="flex w-full max-w-screen-2xl mx-auto">
@@ -32,7 +36,7 @@ function SignIn() {
           <div className="mx-auto text-xl mt-4">
             Заполните необходимые поля
           </div>
-
+          {submitError.length ? <p className="text-red-500 mx-auto text-xl mt-4">{submitError}</p> : null}
           <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex items-center mt-4">
               <div className="w-12 shrink-0 mx-4">

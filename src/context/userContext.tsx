@@ -37,7 +37,7 @@ export const UserContextProvider = ({
   const [userInfo, setUserInfo] = useState(defaultProfile);
 
   useEffect(() => {
-    if (cookies.get('token')) {
+    if (cookies.get('accessToken')) {
       setIsSignedIn(true);
     }
     else {
