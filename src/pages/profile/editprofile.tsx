@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-
-// import images from ";
-import From from '../../components/profilePage/Form.tsx';
+import Form from '../../components/profilePage/Form';
 
 const EditProfile: React.FC = () => {
   const [, setFileUrl] = useState<string | null>(null);
@@ -40,7 +38,7 @@ const EditProfile: React.FC = () => {
           </p>
         </div>
         <div className=''>
-          <From />
+          <Form />
         </div>
       </div>
     </div>
