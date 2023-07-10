@@ -1,5 +1,5 @@
 import { Project } from "../../utils/types"
-const images = ["https://eastbayexpress.com/wp-content/uploads/sites/15/2018/05/antwon.jpg", "https://i.ytimg.com/vi/GtUf-vWJAHQ/maxresdefault.jpg", "https://rovimusic.rovicorp.com/image.jpg?c=NdmQz9gSBgAPP68QAsY-8CpQg_7iAU1wjqLgK_xGXts=&f=4", "https://media.gettyimages.com/id/3291374/photo/miners-straight-from-the-pit-taking-their-milk-break-in-the-sunshine-at-a-new-milk-bar-opened-at.jpg?s=612x612&w=gi&k=20&c=xX_JsK_-_WIF_vvy-6u8F7maGS2u8rjcGc75h5_Y3Ro="]
+const images = ["https://eastbayexpress.com/wp-content/uploads/sites/15/2018/05/antwon.jpg", "https://i.ytimg.com/vi/GtUf-vWJAHQ/maxresdefault.jpg", "https://freight.cargo.site/w/4397/q/75/i/6a703fbc0ac85f75027a97d0ea183d01325a4c65f0be22a6616d40b49c5187db/fp100antwon041-2.jpg", "https://media.gettyimages.com/id/3291374/photo/miners-straight-from-the-pit-taking-their-milk-break-in-the-sunshine-at-a-new-milk-bar-opened-at.jpg?s=612x612&w=gi&k=20&c=xX_JsK_-_WIF_vvy-6u8F7maGS2u8rjcGc75h5_Y3Ro="]
 
 function ProjectDescription({ project }: { project: Project }) {
     return (
@@ -13,7 +13,7 @@ function ProjectDescription({ project }: { project: Project }) {
 
                         <div
                             style={{ backgroundImage: `url(${image})` }}
-                            className="bg-cover bg-center w-full h-44 rounded-md">
+                            className="bg-cover bg-center bg-gray-400 w-full h-44 rounded-md">
 
                         </div>
                     </div>
