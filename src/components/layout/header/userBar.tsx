@@ -43,7 +43,8 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<Aut
 
                     <div
                         onClick={() => {
-                            cookies.remove("token")
+                            cookies.remove("accessToken")
+                            cookies.remove("refreshToken")
                             setIsSignedIn(false)
                             navigate("/")
                         }

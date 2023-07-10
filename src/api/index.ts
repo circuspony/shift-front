@@ -1,22 +1,30 @@
 import axios from "axios";
 import cookies from "../utils/cookies";
 
-interface RegisterBody {
-    name: string
-    surname: string
-    patronymic: string
-    password: string
-    email: string
-}
-
-
-const instance = axios.create({
+export const axiosInstance = axios.create({
     baseURL: "http://kosterror.ru:8081/api/v1",
-    headers: { bearerAuth: cookies.get('token') }
+    headers: {
+        'Content-Type': 'application/json',
+        "bearerAuth": cookies.get('accessToken') ? cookies.get('accessToken') : ""
+    }
 })
 
-export const register = async (body: RegisterBody) => {
-    const response = await instance.post("/register", body)
-    console.log(response)
-    return response
-}
+// Refresh Token Logic
+// axiosInstance.interceptors.response.use(
+//     (response) => {
+//       return response;
+//     },
+//     async function (error) {
+//       const originalRequest = error.config;
+//       if (error.response.status === 403 && !originalRequest._retry) {
+//         originalRequest._retry = true;
+//         const resp = await refreshToken();
+//         const accessToken = resp.response.data.accessToken;
+//         axiosInstance.defaults.headers.common[
+//             "bearerAuth"
+//         ] = accessToken;
+//         return axiosInstance(originalRequest);
+//       }
+//       return Promise.reject(error);
+//     }
+//   );
