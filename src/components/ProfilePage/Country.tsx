@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import countries from 'i18n-iso-countries';
 import ruLocale from 'i18n-iso-countries/langs/ru.json';
+import CustomSelect from "../../components/inputs/select"
 
 function Countries() {
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState({ label: "Страна", value: "" });
 
-  const selectCountryHandler = (value) => setSelectedCountry(value);
+  // const selectCountryHandler = (value) => setSelectedCountry(value);
 
   countries.registerLocale(ruLocale);
 
@@ -19,25 +20,28 @@ function Countries() {
   });
 
   return (
-    <div className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-4 outline-none'>
-      <select
-        required
-        className='w-full border-solid bg-transparent outline-none border-r-8 border-transparent overflow-auto relative'
-        value={selectedCountry}
-        onChange={(e) => selectCountryHandler(e.target.value)}
-      >
-        {/* сделать пропсы */}
-        <option value='' disabled selected hidden className=''>
-          Страна
-        </option>
-        {!!countryArr?.length &&
-          countryArr.map(({ label, value }) => (
-            <option key={value} value={value} className=''>
-              {label}
-            </option>
-          ))}
-      </select>
-    </div>
+    <>
+      {/* <div className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-4 outline-none'>
+        <select
+          required
+          className='w-full border-solid bg-transparent outline-none border-r-8 border-transparent overflow-auto relative'
+          value={selectedCountry}
+          onChange={(e) => selectCountryHandler(e.target.value)}
+        >
+          <div className="absolute w-200"></div>
+          <option value='' disabled selected hidden className=''>
+            Страна
+          </option>
+          {!!countryArr?.length &&
+            countryArr.map(({ label, value }) => (
+              <option key={value} value={value} className=''>
+                {label}
+              </option>
+            ))}
+        </select>
+      </div> */}
+      <CustomSelect option={selectedCountry} setOption={setSelectedCountry} selectArray={countryArr} />
+    </>
   );
 }
 
