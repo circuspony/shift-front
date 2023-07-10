@@ -1,4 +1,4 @@
-import Button from "../../button/button"
+import Button from "../../button"
 import { Link, useNavigate } from "react-router-dom";
 import UserBar from "./userBar";
 import PiggyIcon from "../../svg/piggyIcon";

@@ -1,7 +1,7 @@
 import { useForm, FieldValues } from "react-hook-form";
 import EmailIcon from "../components/svg/emailicon";
 import PasswordIcon from "../components/svg/passwordIcon";
-import Button from "../components/button/button";
+import Button from "../components/button";
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useRef } from "react";
 import PersonIcon from "../components/svg/personIcon";

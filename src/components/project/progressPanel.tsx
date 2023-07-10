@@ -2,7 +2,7 @@ import ChecListIcon from "../svg/checkListIcon";
 import CoinIcon from "../svg/coinIcon";
 const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"]
 import { Project } from "../../utils/types";
-import Button from "../button/button";
+import Button from "../button";
 import { calculateTime } from "../../utils/calculateTime";
 import useAuth from "../../hooks/useAuth";
 

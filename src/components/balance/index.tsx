@@ -1,4 +1,4 @@
-import Button from "../button/button";
+import Button from "../button";
 import CoinIcon from "../svg/coinIcon";
 import { useState } from "react";
 import { useForm, FieldValues } from "react-hook-form";
