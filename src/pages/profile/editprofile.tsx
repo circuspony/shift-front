@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import Form from '../../components/profilePage/profileForm'
+import Form from '../../components/profilePage/form'
 
 const EditProfile: React.FC = () => {
   const [, setFileUrl] = useState<string | null>(null);
