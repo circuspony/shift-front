@@ -22,9 +22,10 @@ const Form = (): JSX.Element => {
     navigate('/profile');
     setUserInfo({
       ...userInfo,
-      firstname: data.firstname,
-      lastname: data.lastname,
-      description: data.description,
+      name: data.name,
+      surname: data.surname,
+      patronymic: data.patronymic,
+      bio: data.bio,
       personalWebLink: data.personalWebLink,
       facebookLink: data.facebookLink,
       twitterLink: data.twitterLink,
@@ -43,17 +44,28 @@ const Form = (): JSX.Element => {
               type='text'
               placeholder='Введите ваше имя'
               className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-2 outline-none'
-              {...register('firstname')}
+              {...register('name')}
             />
             <div className='mt-8'>
-              <label htmlFor='name' className='block w-full ml-4 font-bold text-3xl'>
+              <label htmlFor='surname' className='block w-full ml-4 font-bold text-3xl'>
                 Фамилия{' '}
               </label>
               <input
                 type='text'
                 placeholder='Введите вашу фамилию'
                 className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-2 outline-none'
-                {...register('lastname')}
+                {...register('surname')}
+              />
+            </div>
+            <div className='mt-8'>
+              <label htmlFor='patronymic' className='block w-full ml-4 font-bold text-3xl'>
+                Отчество{' '}
+              </label>
+              <input
+                type='text'
+                placeholder='Введите ваше отчество'
+                className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-2 outline-none'
+                {...register('patronymic')}
               />
             </div>
           </div>
@@ -74,7 +86,7 @@ const Form = (): JSX.Element => {
           </div>
 
           <div className='mt-8'>
-            <label htmlFor='description' className='block w-full ml-4 font-bold text-3xl'>
+            <label htmlFor='bio' className='block w-full ml-4 font-bold text-3xl'>
               Описание
             </label>
             <textarea
@@ -83,7 +95,7 @@ const Form = (): JSX.Element => {
               rows={6}
               placeholder='Расскажите о себе'
               className='w-full bg-transparent outline-none rounded-2xl p-4 border-solid border-2'
-              {...register('description')}
+              {...register('bio')}
             ></textarea>
           </div>
 

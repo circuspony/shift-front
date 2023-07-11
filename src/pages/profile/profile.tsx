@@ -18,7 +18,7 @@ const Profile = () => {
           />
           <div className='grid justify-items-start ml-6'>
             <h1 className='font-bold text-lg text-center text-white pt-2'>
-              {userInfo.firstname} {userInfo.lastname}
+              {userInfo.name} {userInfo.surname}
             </h1>
             <div className='flex'>
               <Link to={userInfo.personalWebLink} className='pr-2'>
@@ -48,7 +48,7 @@ const Profile = () => {
             </label> */}
             <div className='font-normal text-xs tracking-wide text-white'>
               {' '}
-              {userInfo.description}{' '}
+              {userInfo.bio}{' '}
             </div>
           </div>
           <Link to='/profile/edit' className='text-white absolute top-0 right-0'>

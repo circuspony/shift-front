@@ -5,13 +5,13 @@ import Button from "../components/button";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
-import { loginUser } from "../api/loginUse";
+import { loginUser } from "../api/loginUser";
 
 function SignIn() {
   const [submitError, setSubmitError] = useState("")
 
   const { register, formState: { errors }, handleSubmit } = useForm({});
-  const { setIsSignedIn } = useAuth()
+  const { authorizeUser } = useAuth()
   const navigate = useNavigate();
   const onSubmit = async (data: FieldValues) => {
     const responseStatus = await loginUser({
@@ -20,7 +20,7 @@ function SignIn() {
     })
     if (responseStatus.success) {
       navigate("/")
-      setIsSignedIn(true)
+      authorizeUser()
     }
     else {
       setSubmitError(responseStatus.message)

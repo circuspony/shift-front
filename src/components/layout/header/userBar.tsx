@@ -6,14 +6,16 @@ import WalletIcon from "../../svg/walletIcon";
 import { Link, useNavigate } from "react-router-dom";
 import cookies from "../../../utils/cookies";
 import { AuthStatus } from "../../../utils/types";
+import useAuth from "../../../hooks/useAuth";
 
 function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<AuthStatus>> }) {
     const navigate = useNavigate();
+    const { userInfo } = useAuth()
     return (
         <>
             <div className="flex flex-col mr-4">
-                <div className="text-sm md:text-base font-medium">Анатолий Анатолий</div>
-                <div className="flex ml-auto text-base md:text-xl text-dark-green">100
+                <div className="ml-auto text-sm md:text-base font-medium">{`${userInfo.name} ${userInfo.surname}`}</div>
+                <div className="flex ml-auto text-base md:text-xl text-dark-green">{userInfo.money}
                     <div className="w-5 ml-1">
                         <CoinIcon />
                     </div>

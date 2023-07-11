@@ -8,9 +8,11 @@ export interface Creator {
 }
 
 export interface Profile {
-    firstname: string
-    lastname: string
-    description: string
+    name: string
+    surname: string
+    patronymic: string,
+    bio: string
+    money: number
     personalWebLink: string
     facebookLink: string
     twitterLink: string
