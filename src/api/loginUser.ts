@@ -12,6 +12,9 @@ export const loginUser = async (body: LoginBody) => {
         .then((response) => {
             cookies.set('accessToken', response.data.accessToken, { path: '/' });
             cookies.set('refreshToken', response.data.refreshToken, { path: '/' });
+            axiosInstance.defaults.headers.common[
+                "Authorization"
+            ] = "Bearer " + response.data.accessToken;
             status = { ...status, success: true }
         })
         .catch((error) => {

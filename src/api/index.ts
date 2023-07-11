@@ -4,27 +4,37 @@ import cookies from "../utils/cookies";
 export const axiosInstance = axios.create({
     baseURL: "http://kosterror.ru:8081/api/v1",
     headers: {
-        'Content-Type': 'application/json',
-        "bearerAuth": cookies.get('accessToken') ? cookies.get('accessToken') : ""
+        common: {
+            'Content-Type': 'application/json',
+            "Authorization": cookies.get('accessToken') ? "Bearer " + cookies.get('accessToken') : ""
+        }
     }
 })
 
-// Refresh Token Logic
-// axiosInstance.interceptors.response.use(
-//     (response) => {
-//       return response;
-//     },
-//     async function (error) {
-//       const originalRequest = error.config;
-//       if (error.response.status === 403 && !originalRequest._retry) {
-//         originalRequest._retry = true;
-//         const resp = await refreshToken();
-//         const accessToken = resp.response.data.accessToken;
-//         axiosInstance.defaults.headers.common[
-//             "bearerAuth"
-//         ] = accessToken;
-//         return axiosInstance(originalRequest);
-//       }
-//       return Promise.reject(error);
-//     }
-//   );
+axiosInstance.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    async function (error) {
+        const originalRequest = error.config;
+        if (originalRequest.url !== "/auth/tokens" && error.response.status === 401 && !originalRequest._retry) {
+            originalRequest._retry = true;
+            try {
+                const response = await axiosInstance.post("/auth/tokens", { refreshToken: cookies.get('refreshToken') })
+                const accessToken = response.data.accessToken;
+                const refreshToken = response.data.refreshToken;
+                axiosInstance.defaults.headers.common[
+                    "Authorization"
+                ] = "Bearer " + accessToken;
+                cookies.set('accessToken', accessToken, { path: '/' });
+                cookies.set('refreshToken', refreshToken, { path: '/' });
+
+                return axiosInstance(originalRequest);
+            }
+            catch (_error) {
+                return Promise.reject(_error);
+            }
+        }
+        return Promise.reject(error);
+    }
+);
