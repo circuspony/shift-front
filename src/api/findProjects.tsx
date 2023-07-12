@@ -19,29 +19,6 @@ interface ProjectSearchBody {
     }
 }
 
-interface ProjectSearchResponse {
-    pagingParams: {
-        totalPages: number
-        totalElements: number
-        page: number
-        size: number
-    },
-    content:
-    {
-        id: string
-        title: string,
-        summary: string,
-        targetAmount: string,
-        collectedAmount: string,
-        avatarId: string
-        creationDate: string
-        finishDate: string
-        category: string
-        status: string
-        authorId: string
-        isApproved: boolean
-    }[]
-}
 export const findProjects = async (body: ProjectSearchBody) => {
     let status = {
         success: false, data: {
