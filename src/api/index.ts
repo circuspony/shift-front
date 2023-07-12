@@ -25,11 +25,11 @@ axiosInstance.interceptors.response.use(
                 const refreshToken = response.data.refreshToken;
                 axiosInstance.defaults.headers.common[
                     "Authorization"
-                ] = "Bearer " + accessToken;
+                ] = "Bearer " + accessToken
                 cookies.set('accessToken', accessToken, { path: '/' });
                 cookies.set('refreshToken', refreshToken, { path: '/' });
 
-                return axiosInstance(originalRequest);
+                return axiosInstance({ ...originalRequest, headers: { common: { "Authorization": "Bearer " + accessToken } } });
             }
             catch (_error) {
                 return Promise.reject(_error);
