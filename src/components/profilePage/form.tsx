@@ -31,6 +31,7 @@ const Form = (): JSX.Element => {
       instagramLink: data.instagramLink
     });
   };
+  console.log(userInfo)
   return (
     <div className='w-full'>
       <div className=''>

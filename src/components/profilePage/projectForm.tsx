@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
-import Button from '../button/button.tsx';
 import useAuth from '../../hooks/useAuth.ts';
 import Countries from './Country.tsx';
+import Button from '../button/index.tsx';
 import Categories from './categories.tsx';
 import UploadAndDisplayImage from './uploadimages.tsx';
 
@@ -18,16 +18,16 @@ const ProjectForm = (): JSX.Element => {
   const onSubmit = (data: FieldValues) => {
     console.log(data);
     navigate('/profile');
-    setUserInfo({
-      ...userInfo,
-      firstname: data.firstname,
-      lastname: data.lastname,
-      description: data.description,
-      personalWebLink: data.personalWebLink,
-      facebookLink: data.facebookLink,
-      twitterLink: data.twitterLink,
-      instagramLink: data.instagramLink
-    });
+    // setUserInfo({
+    //   ...userInfo,
+    //   firstname: data.firstname,
+    //   lastname: data.lastname,
+    //   description: data.description,
+    //   personalWebLink: data.personalWebLink,
+    //   facebookLink: data.facebookLink,
+    //   twitterLink: data.twitterLink,
+    //   instagramLink: data.instagramLink
+    // });
   };
 
   return (
@@ -110,7 +110,7 @@ const ProjectForm = (): JSX.Element => {
           </div>
 
           <div className='flex w-full py-4'>
-            <Button type='submit' addonClass='py-4 text-xl w-full bg-slate-700'>
+            <Button type='submit' className='py-4 text-xl w-full bg-slate-700'>
               <span className='mx-auto text-white'>Обновить</span>
             </Button>
           </div>
