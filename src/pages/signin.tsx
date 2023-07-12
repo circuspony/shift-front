@@ -78,7 +78,7 @@ function SignIn() {
             <div className="flex w-full pr-6 pl-20 py-4">
               <Button
                 type="submit"
-                addonClass="py-4 text-xl w-full">
+                className="py-4 text-xl w-full">
                 <span className="mx-auto">
                   Войти
                 </span>

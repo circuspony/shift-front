@@ -66,7 +66,7 @@ function Balance() {
                                 <div className="flex w-full px-8 py-4">
                                     <Button
                                         type="submit"
-                                        addonClass="py-4 text-xl w-full">
+                                        className="py-4 text-xl w-full">
                                         <span className="mx-auto">
                                             Отправить код
                                         </span>

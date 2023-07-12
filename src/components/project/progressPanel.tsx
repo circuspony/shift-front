@@ -45,7 +45,7 @@ function ProgressPanel({ project }: { project: Project }) {
             {isSignedIn ? <>
                 <div className="flex w-full mt-4">
                     <Button
-                        addonClass="py-3 text-xl w-full">
+                        className="py-3 text-xl w-full">
                         <span className="mx-auto">
                             Поддержать проект
                         </span>

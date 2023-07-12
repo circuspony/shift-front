@@ -170,7 +170,7 @@ const Form = (): JSX.Element => {
           </div>
 
           <div className='flex w-full py-4'>
-            <Button type='submit' addonClass='py-4 text-xl w-full bg-slate-700'>
+            <Button type='submit' className='py-4 text-xl w-full bg-slate-700'>
               <span className='mx-auto text-white'>Обновить</span>
             </Button>
           </div>
