@@ -10,6 +10,8 @@ interface iUserContext {
   userInfo: Profile;
   setUserInfo: Dispatch<SetStateAction<Profile>>;
   authorizeUser: Function
+  isAdmin: boolean
+  isModer: boolean
 }
 
 const defaultProfile = {
@@ -31,6 +33,8 @@ const UserContext = React.createContext<iUserContext>({
   userInfo: defaultProfile,
   setUserInfo: () => { },
   authorizeUser: () => { },
+  isAdmin: false,
+  isModer: false,
 });
 
 export const UserContextProvider = ({
@@ -40,12 +44,21 @@ export const UserContextProvider = ({
 }) => {
   const [isSignedIn, setIsSignedIn] = useState<AuthStatus>(undefined);
   const [userInfo, setUserInfo] = useState(defaultProfile);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isModer, setIsModer] = useState(false);
+
   const authorizeUser = async () => {
     if (cookies.get('accessToken')) {
       const profileStatus = await getUser()
       if (profileStatus.success) {
         console.log("profileStatus")
         console.log(profileStatus)
+        if (profileStatus.data.personRole === "ROLE_MODER") {
+          setIsModer(true)
+        }
+        if (profileStatus.data.personRole === "ROLE_ADMIN") {
+          setIsAdmin(true)
+        }
         setUserInfo({
           ...userInfo,
           name: profileStatus?.data?.name || "",
@@ -62,6 +75,13 @@ export const UserContextProvider = ({
   }
 
   useEffect(() => {
+    if (!isSignedIn) {
+      setIsAdmin(false)
+      setIsModer(false)
+    }
+  }, [isSignedIn]);
+
+  useEffect(() => {
     authorizeUser()
   }, []);
 
@@ -72,7 +92,9 @@ export const UserContextProvider = ({
         setIsSignedIn,
         userInfo,
         setUserInfo,
-        authorizeUser
+        authorizeUser,
+        isAdmin,
+        isModer
       }}
     >
       {children}

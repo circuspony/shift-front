@@ -7,10 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import cookies from "../../../utils/cookies";
 import { AuthStatus } from "../../../utils/types";
 import useAuth from "../../../hooks/useAuth";
+import PersonIcon from "../../svg/personIcon";
+import PiggyIcon from "../../svg/piggyIcon";
 
 function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<AuthStatus>> }) {
     const navigate = useNavigate();
-    const { userInfo } = useAuth()
+    const { userInfo, isAdmin, isModer } = useAuth()
     return (
         <>
             <div className="flex flex-col mr-4">
@@ -42,7 +44,22 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<Aut
                         </div>
                         <span className="ml-4">Настройки</span>
                     </div>
-
+                    {isModer || isAdmin && <div
+                        onClick={() => { }}
+                        className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
+                        <div className="w-5 h-5">
+                            <PersonIcon />
+                        </div>
+                        <span className="ml-4">Модерация</span>
+                    </div>}
+                    {isAdmin && <div
+                        onClick={() => { }}
+                        className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
+                        <div className="w-5 h-5">
+                            <PiggyIcon />
+                        </div>
+                        <span className="ml-4">Админка</span>
+                    </div>}
                     <div
                         onClick={() => {
                             cookies.remove("accessToken")
