@@ -4,6 +4,7 @@ import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
 import useAuth from '../../hooks/useAuth';
 import SmallProjectCard from '../../components/project/projectPanels/smallProjectCard';
+import ProjectCreate from './projectCreate';
 
 const projects = [
   {
@@ -127,8 +128,11 @@ const Profile = () => {
         </div>
       </div>
       <div className='flex flex-col w-1/3'>
-        <div className='w-full my-0 mx-auto border-solid border-b-2'>
-          <h1 className='text-3xl p-2'>Созданные проекты</h1>
+        <div className='grid grid-cols-2 w-full my-0 mx-auto border-solid border-b-2'>
+          <h1 className='text-3xl p-2 text-center border-solid border-r-2'>Созданные проекты</h1>
+          <Link to='/profile/projectcreate' className='text-normal-text font-normal'>
+            <h1 className='text-3xl p-2 text-center'>Создать проект</h1>
+          </Link>
         </div>
         <div>
           {projects.map((project) => (

@@ -2,9 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
 import Button from '../button/button.tsx';
 import useAuth from '../../hooks/useAuth.ts';
-import { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
 import Countries from './Country.tsx';
+import Categories from './categories.tsx';
+import UploadAndDisplayImage from './uploadimages.tsx';
 
 const ProjectForm = (): JSX.Element => {
   const { userInfo, setUserInfo } = useAuth();
@@ -29,15 +29,7 @@ const ProjectForm = (): JSX.Element => {
       instagramLink: data.instagramLink
     });
   };
-  const onDrop = useCallback(async (acceptedFile: File[]) => {
-    setFileUrl(acceptedFile[0].toString());
-  }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-
-    maxSize: 5000000
-  });
   return (
     <div className='w-full'>
       <div className=''>
@@ -53,15 +45,8 @@ const ProjectForm = (): JSX.Element => {
                 className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-2 outline-none'
               />
             </div>
-            <div className='mt-8'>
-              <label htmlFor='name' className='block w-full ml-4 font-bold text-3xl'>
-                Категория{' '}
-              </label>
-              <input
-                type='text'
-                placeholder='Выберите категорию'
-                className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-2 outline-none'
-              />
+            <div className='mt-8 flex flex-col justify-end'>
+              <Categories />
             </div>
           </div>
           <div className=''>
@@ -118,28 +103,9 @@ const ProjectForm = (): JSX.Element => {
             </div>
           </div>
 
-          <div className='grid grid-cols-2 mt-4 relative text-center'>
-            <div>
-              <input {...getInputProps()} />
-              <img
-                src={'/images/cat.jpg'}
-                alt=''
-                className='w-52 h-52 m-auto relative text-center justify-center border-solid border-2'
-              />
-              <p className='font-bold text-base text-center cursor-pointer' {...getRootProps()}>
-                Загрузить картинку
-              </p>
-            </div>
-            <div>
-              <input {...getInputProps()} />
-              <img
-                src={'/images/cat.jpg'}
-                alt=''
-                className='w-52 h-52 m-auto relative text-center justify-center border-solid border-2'
-              />
-              <p className='font-bold text-base text-center cursor-pointer' {...getRootProps()}>
-                Загрузить видео
-              </p>
+          <div className='w-full flex mt-4 relative text-center justify-center'>
+            <div className='flex flex-col'>
+              <UploadAndDisplayImage />
             </div>
           </div>
 
@@ -155,6 +121,3 @@ const ProjectForm = (): JSX.Element => {
 };
 
 export default ProjectForm;
-function setFileUrl(_arg0: string) {
-  throw new Error('Function not implemented.');
-}

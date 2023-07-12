@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
 // import images from ";
-import Form from '../../components/ProfilePage/Form.tsx';
+import Form from '../../components/profilePage/Form.tsx';
 
 const EditProfile: React.FC = () => {
   const [, setFileUrl] = useState<string | null>(null);

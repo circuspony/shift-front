@@ -1,4 +1,4 @@
-import ProjectForm from '../../components/ProfilePage/projectForm.tsx';
+import ProjectForm from '../../components/profilePage/projectForm.tsx';
 
 function ProjectCreate() {
   return (
