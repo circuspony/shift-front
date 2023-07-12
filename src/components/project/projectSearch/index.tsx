@@ -2,18 +2,7 @@ import { findProjects } from "../../../api/findProjects";
 import Pagination from "./pagination";
 import SmallProjectCard from "../projectPanels/smallProjectCard"
 import { useState, useEffect } from "react";
-
-const categories = [{ label: "Все категории", value: "ALL" },
-{ label: "Кино", value: "CINEMA" },
-{ label: "Литература", value: "LITERATURE" },
-{ label: "Искусство", value: "ART" },
-{ label: "Игры", value: "GAMES" },
-{ label: "Музыка", value: "MUSIC" },
-{ label: "Спорт", value: "SPORTS" },
-{ label: "Путешествия", value: "TRAVEL" },
-{ label: "Экология и природа", value: "ECOLOGY_AND_NATURE" },
-{ label: "Общественные инициативы", value: "PUBLIC_INITIATIVES" },
-{ label: "Благотворительность", value: "CHARITY" }]
+import { projectCategories } from "../constants";
 
 const statuses = [
     { label: "Любой", value: "ALL" },
@@ -28,7 +17,7 @@ const searchBodyDefault = {
     },
     filteringParams: {
         title: "",
-        category: categories[0].value,
+        category: projectCategories[0].value,
         status: statuses[0].value,
     },
     sorting: {
@@ -45,7 +34,7 @@ function ProjectSearch() {
     const [projects, setProjects] = useState([])
 
     const [searchString, setSearchString] = useState("")
-    const [currentCategory, setCurrentCategory] = useState(categories[0].value)
+    const [currentCategory, setCurrentCategory] = useState(projectCategories[0].value)
     const [currentStatus, setCurrentStatus] = useState(statuses[0].value)
 
 
@@ -63,7 +52,10 @@ function ProjectSearch() {
     useEffect(() => {
         const pageChanged = searchBody.filteringParams.category === currentCategory && searchBody.filteringParams.status === currentStatus && searchBody.filteringParams.title === searchString
         setSearchBody({ ...searchBody, pagingParams: { ...searchBody.pagingParams, page: pageChanged ? page : 0 }, filteringParams: { title: searchString, status: currentStatus, category: currentCategory } })
-        if (!pageChanged) setPage(0)
+        if (!pageChanged) {
+            setTotalPages(1)
+            setPage(0)
+        }
     }, [searchString, currentStatus, currentCategory, page])
 
     useEffect(() => {
@@ -89,7 +81,7 @@ function ProjectSearch() {
                 <div className="w-full mb-4 md:w-2/5 xl:w-1/4 md:pl-4 ">
                     <div className="flex rounded-md flex-col bg-white w-full p-5 md:p-8">
                         <span className="my-1 font-bold text-black text-base md:text-xl">Категории</span>
-                        {categories.map((category) =>
+                        {projectCategories.map((category) =>
                             <div
                                 onClick={() => setCurrentCategory(category.value)}
                                 className={`my-1 text-xs md:text-base text-gray-500 cursor-pointer ${category.value === currentCategory ? "font-bold" : ""}`}>{category.label}</div>

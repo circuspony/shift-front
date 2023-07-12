@@ -20,7 +20,7 @@ function ProjectCard({ project }: { project: Project }) {
                 <p className="mb-4">{project.summary}</p>
                 <div className="flex flex-col md:flex-row items-center w-full">
                     <div
-                        style={{ backgroundImage: `url(${project.image})` }}
+                        style={{ backgroundImage: `url(${project.avatarId ? `http://kosterror.ru:8081/api/v1/files/${project.avatarId}` : project.image})` }}
                         className="rounded-md w-full lg:w-3/5 xl:w-2/3 h-64 lg:h-80 xl:h-[30rem] bg-cover bg-center bg-gray-200 md:mr-4">
 
                     </div>

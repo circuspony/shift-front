@@ -2,10 +2,11 @@ import { Link } from "react-router-dom"
 import { Project } from "../../../utils/types"
 import CoinIcon from "../../svg/coinIcon"
 import { ProjectStatus } from "../../../utils/types"
+import { projectCategories } from "../constants"
 
 function SmallProjectCard({ project }: { project: Project }) {
     return (
-        <Link to="/project/33" className="flex flex-col group my-2 text-normal-text hover:text-normal-text bg-white overflow-hidden rounded-md border-custom-gray border-2 ">
+        <Link to={`/project/${project.id}`} className="flex flex-col group my-2 text-normal-text hover:text-normal-text bg-white overflow-hidden rounded-md border-custom-gray border-2 ">
             <div
                 style={{ backgroundImage: project.avatarId !== undefined ? `url(http://kosterror.ru:8081/api/v1/files/${project.avatarId})` : `url(${project.image})` }}
                 className="relative w-full h-56 bg-cover bg-center bg-gray-400">
@@ -14,7 +15,7 @@ function SmallProjectCard({ project }: { project: Project }) {
                 </div>
             </div>
             <div className="flex flex-col px-4">
-                <div className="mt-2 underline text-sm cursor-pointer">{project.category}</div>
+                <div className="mt-2 underline text-sm cursor-pointer">{projectCategories.find((c) => c.value === project.category)?.label}</div>
                 <div className="mt-2 font-bold text-xl line-clamp-2">{project.title}</div>
                 <div className="mt-2 text-sm text-gray-400 text-justify line-clamp-3 h-16">{project.summary}</div>
                 <div className="relative h-1.5 rounded-md w-full bg-gray-400 mt-8">

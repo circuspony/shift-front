@@ -5,6 +5,7 @@ import { Project } from "../../utils/types";
 import Button from "../button";
 import { calculateTime } from "../../utils/calculateTime";
 import useAuth from "../../hooks/useAuth";
+import { projectCategories } from "./constants";
 
 function ProgressPanel({ project }: { project: Project }) {
     const { isSignedIn } = useAuth()
@@ -34,11 +35,11 @@ function ProgressPanel({ project }: { project: Project }) {
                     <div className="text-gray-400">поддержали</div>
                 </div>
                 <div className="flex flex-col">
-                    <div className="font-bold">{calculateTime(project.endDate.getTime(), Date.now())}</div>
-                    <div className="text-gray-400">осталось</div>
+                    {new Date(project.finishDate).getTime() > Date.now() && <div className="font-bold">{calculateTime(new Date(project.finishDate).getTime(), Date.now())}</div>}
+                    <div className="text-gray-400">{new Date(project.finishDate).getTime() > Date.now() ? "осталось" : "Время вышло"}</div>
                 </div>
                 <div className="flex flex-col">
-                    <div className="font-bold">{project.startDate.getDate() + " " + months[project.startDate.getMonth()] + " " + project.startDate.getFullYear()}</div>
+                    <div className="font-bold">{new Date(project.creationDate).getDate() + " " + months[new Date(project.creationDate).getMonth()] + " " + new Date(project.creationDate).getFullYear()}</div>
                     <div className="text-gray-400">запущен</div>
                 </div>
             </div>
@@ -56,7 +57,7 @@ function ProgressPanel({ project }: { project: Project }) {
                 <div className="w-4 mr-1">
                     <ChecListIcon />
                 </div>
-                <div className="">{project.category}</div>
+                <div className="">{projectCategories.find((c) => c.value === project.category)?.label}</div>
             </div>
         </>
     )

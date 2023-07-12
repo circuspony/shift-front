@@ -26,6 +26,7 @@ export enum ProjectStatus {
     FINISHED = "FINISHED"
 }
 export interface Project {
+    id?: string
     title: string
     summary?: string
     description?: string
@@ -36,8 +37,8 @@ export interface Project {
     collectedAmount: number
     targetAmount: number
     sponsors: number
-    startDate: Date
-    endDate: Date
+    creationDate: Date
+    finishDate: Date
     category: string
     creator: Creator
 }
