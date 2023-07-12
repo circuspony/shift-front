@@ -11,13 +11,13 @@ function ProjectCard({ project }: { project: Project }) {
     return (
         <div className="flex flex-col w-full h-full min-h-screen bg-gray-100 pb-20">
             <Helmet>
-                <title>{project.name}</title>
-                <meta name="description" content={project.shortDescription} />
+                <title>{project.title}</title>
+                <meta name="description" content={project.summary} />
             </Helmet>
             <div className="flex px-8 2xl:px-0 flex-col w-full mt-8 max-w-screen-xl mx-auto">
-                <SmallStatusBar finished={project.finished} />
-                <h1 className="my-4 text-3xl font-bold">{project.name}</h1>
-                <p className="mb-4">{project.shortDescription}</p>
+                <SmallStatusBar finished={project.status === "FINISHED"} />
+                <h1 className="my-4 text-3xl font-bold">{project.title}</h1>
+                <p className="mb-4">{project.summary}</p>
                 <div className="flex flex-col md:flex-row items-center w-full">
                     <div
                         style={{ backgroundImage: `url(${project.image})` }}

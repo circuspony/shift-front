@@ -44,6 +44,8 @@ export const UserContextProvider = ({
     if (cookies.get('accessToken')) {
       const profileStatus = await getUser()
       if (profileStatus.success) {
+        console.log("profileStatus")
+        console.log(profileStatus)
         setUserInfo({
           ...userInfo,
           name: profileStatus?.data?.name || "",
@@ -60,7 +62,6 @@ export const UserContextProvider = ({
   }
 
   useEffect(() => {
-    console.log("profileStatus")
     authorizeUser()
   }, []);
 

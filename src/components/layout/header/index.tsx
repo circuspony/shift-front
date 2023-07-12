@@ -17,6 +17,9 @@ function Header() {
                     </div>
                     <span className="text-xl md:text-3xl font-bold mt-1 ml-2">ДАЙДЕНЕГ!</span>
                 </Link>
+                <Link to="/search" className="rounded-md py-2 px-8 ml-8 bg-light-gray text-normal-text hover:text-normal-text">
+                    Искать проекты
+                </Link>
                 {isSignedIn ? <div className="flex items-center ml-auto">
                     <UserBar
                         setIsSignedIn={setIsSignedIn}

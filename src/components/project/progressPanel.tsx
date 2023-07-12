@@ -11,21 +11,21 @@ function ProgressPanel({ project }: { project: Project }) {
     return (
         <>
             <div className="flex items-center">
-                <span className="text-3xl font-bold">{project.collected + ""}</span>
+                <span className="text-3xl font-bold">{project.collectedAmount + ""}</span>
                 <div className="text-normal-text w-9 ml-1">
                     <CoinIcon />
                 </div>
             </div>
             <div className="flex items-center mt-3 w-full">
-                <span>{"из " + project.needed}</span>
+                <span>{"из " + project.targetAmount}</span>
                 <div className="text-normal-text w-5 ml-0.5">
                     <CoinIcon />
                 </div>
-                <div className="ml-auto">{"Собрано " + Math.floor(project.collected * 100 / project.needed) + "%"}</div>
+                <div className="ml-auto">{"Собрано " + Math.floor(project.collectedAmount * 100 / project.targetAmount) + "%"}</div>
             </div>
             <div className="relative h-1.5 mt-3 rounded-md w-full bg-gray-400">
                 <div
-                    style={{ width: Math.floor(project.collected * 100 / project.needed) > 100 ? 100 : Math.floor(project.collected * 100 / project.needed) + "%" }}
+                    style={{ width: Math.floor(project.collectedAmount * 100 / project.targetAmount) > 100 ? 100 : Math.floor(project.collectedAmount * 100 / project.targetAmount) + "%" }}
                     className={`bg-light-green rounded-md absolute h-1.5`}></div>
             </div>
             <div className="flex itmes-center mt-4 justify-between">

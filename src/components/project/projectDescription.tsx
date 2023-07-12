@@ -5,7 +5,7 @@ function ProjectDescription({ project }: { project: Project }) {
     return (
         <div className="flex flex-col">
             <div className="text-2xl font-medium">О проекте</div>
-            <div className="w-full py-4 text-justify">{project.fullDescription}</div>
+            <div className="w-full py-4 text-justify">{project.description}</div>
             <div className="text-2xl font-medium mt-4">Приложенные изображения</div>
             <div className="flex flex-row flex-wrap mt-4">
                 {images.map((image) =>

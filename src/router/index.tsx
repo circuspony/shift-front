@@ -10,6 +10,7 @@ import SignUp from "../pages/signup";
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import SearchPage from "../pages/search";
 
 const router = createBrowserRouter(
     [{
@@ -48,6 +49,10 @@ const router = createBrowserRouter(
                 element: <ProtectedRoute needLogin={false}>
                     <SignUp />
                 </ProtectedRoute>
+            },
+            {
+                path: "search",
+                element: <SearchPage />
             },
             {
                 path: "*",
