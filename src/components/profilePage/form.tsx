@@ -14,7 +14,6 @@ const Form = (): JSX.Element => {
     handleSubmit
   } = useForm({
     defaultValues: userInfo
-
   });
   const navigate = useNavigate();
   const onSubmit = (data: FieldValues) => {
@@ -29,7 +28,7 @@ const Form = (): JSX.Element => {
       personalWebLink: data.personalWebLink,
       facebookLink: data.facebookLink,
       twitterLink: data.twitterLink,
-      instagramLink: data.instagramLink,
+      instagramLink: data.instagramLink
     });
   };
   return (

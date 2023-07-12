@@ -29,7 +29,7 @@ const EditProfile: React.FC = () => {
         <div className='mt-4 relative text-center'>
           <input {...getInputProps()} />
           <img
-            src={"/images/cat.jpg"}
+            src={'/images/cat.jpg'}
             alt=''
             className='w-36 h-36 mt-8 m-auto rounded-full relative text-center justify-center'
           />
