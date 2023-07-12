@@ -70,14 +70,14 @@ function ProjectSearch() {
         projectSearch()
     }, [searchBody])
     return (
-        <div className='flex flex-col mt-16 w-full mx-auto max-w-screen-2xl min-h-screen'>
+        <div className='flex flex-col mt-16 w-full mx-auto max-w-screen-2xl min-h-screen px-8 2xl:px-0'>
             <input
                 value={searchString}
                 onChange={(e) => setSearchString(e.target.value)}
-                className="text-4xl outline-none bg-gray-100 mb-8" placeholder="Поиск по выбранной категории" />
-            <div className="flex">
-                <div className="flex flex-col w-3/4">
-                    <div className="flex flex-col w-full max-w-screen-xl mx-auto px-8 xl:px-0">
+                className="text-xl md:text-4xl outline-none bg-gray-100 mb-8" placeholder="Поиск по выбранной категории" />
+            <div className="flex flex-wrap flex-wrap-reverse md:flex-nowrap">
+                <div className="flex flex-col w-full md:w-3/5 xl:w-3/4">
+                    <div className="flex flex-col w-full max-w-screen-xl mx-auto">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4 w-full">
                             {projects.map((project) =>
                                 <SmallProjectCard project={project} />
@@ -86,19 +86,19 @@ function ProjectSearch() {
                     </div>
                     <Pagination page={page} setPage={setPage} totalPages={totalPages} />
                 </div>
-                <div className="w-1/4 pl-4 ">
-                    <div className="flex rounded-md flex-col bg-white w-full p-8 ">
-                        <span className="my-1 font-bold text-black text-xl">Категории</span>
+                <div className="w-full mb-4 md:w-2/5 xl:w-1/4 md:pl-4 ">
+                    <div className="flex rounded-md flex-col bg-white w-full p-5 md:p-8">
+                        <span className="my-1 font-bold text-black text-base md:text-xl">Категории</span>
                         {categories.map((category) =>
                             <div
                                 onClick={() => setCurrentCategory(category.value)}
-                                className={`my-1 text-gray-500 cursor-pointer ${category.value === currentCategory ? "font-bold" : ""}`}>{category.label}</div>
+                                className={`my-1 text-xs md:text-base text-gray-500 cursor-pointer ${category.value === currentCategory ? "font-bold" : ""}`}>{category.label}</div>
                         )}
-                        <span className="mt-4 mb-1 font-bold text-black text-xl">Статус</span>
+                        <span className="mt-4 mb-1 font-bold text-black text-base md:text-xl">Статус</span>
                         {statuses.map((status) =>
                             <div
                                 onClick={() => setCurrentStatus(status.value)}
-                                className={`my-1 text-gray-500 cursor-pointer ${status.value === currentStatus ? "font-bold" : ""}`}>{status.label}</div>
+                                className={`my-1 text-xs md:text-base text-gray-500 cursor-pointer ${status.value === currentStatus ? "font-bold" : ""}`}>{status.label}</div>
                         )}
                     </div>
                 </div>

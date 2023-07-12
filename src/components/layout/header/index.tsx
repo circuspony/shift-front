@@ -17,8 +17,8 @@ function Header() {
                     </div>
                     <span className="text-xl md:text-3xl font-bold mt-1 ml-2">ДАЙДЕНЕГ!</span>
                 </Link>
-                <Link to="/search" className="rounded-md py-2 px-8 ml-8 bg-light-gray text-normal-text hover:text-normal-text">
-                    Искать проекты
+                <Link to="/search" className="font-semibold rounded-md py-2 px-8 ml-8 bg-light-gray text-normal-text hover:text-normal-text">
+                    Проекты
                 </Link>
                 {isSignedIn ? <div className="flex items-center ml-auto">
                     <UserBar
@@ -27,7 +27,7 @@ function Header() {
                 </div> :
                     <Button onClick={() => {
                         navigate("/signin")
-                    }} addonClass="flex py-2 px-8 ml-auto">
+                    }} className="flex py-2 px-8 ml-auto">
                         <div>{"Войти"}</div>
                     </Button>}
             </div>
