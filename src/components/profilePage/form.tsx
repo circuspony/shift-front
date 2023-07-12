@@ -1,25 +1,26 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm, FieldValues } from 'react-hook-form';
-import { HiOutlineMail } from 'react-icons/hi';
+// import { HiOutlineMail } from 'react-icons/hi';
 import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
 import Button from '../button/index.tsx';
 import useAuth from '../../hooks/useAuth.ts';
+import { updateUser } from '../../api/updateUser.ts';
 
 const Form = (): JSX.Element => {
   const { userInfo, setUserInfo } = useAuth();
   const {
     register,
-    // formState: { errors },
     handleSubmit
   } = useForm({
     defaultValues: userInfo
   });
   const navigate = useNavigate();
-  const onSubmit = (data: FieldValues) => {
+
+
+  const onSubmit = async (data: FieldValues) => {
     console.log(data);
-    navigate('/profile');
-    setUserInfo({
+    const newProfile = {
       ...userInfo,
       name: data.name,
       surname: data.surname,
@@ -29,9 +30,13 @@ const Form = (): JSX.Element => {
       facebookLink: data.facebookLink,
       twitterLink: data.twitterLink,
       instagramLink: data.instagramLink
-    });
+    }
+    const updateUserStatus = await updateUser(newProfile)
+    if (updateUserStatus.success) {
+      setUserInfo({ ...userInfo, ...updateUserStatus.data });
+      navigate('/profile');
+    }
   };
-  console.log(userInfo)
   return (
     <div className='w-full'>
       <div className=''>
@@ -69,7 +74,7 @@ const Form = (): JSX.Element => {
               />
             </div>
           </div>
-          <div className='mt-8'>
+          {/* <div className='mt-8'>
             <label htmlFor='email' className='block w-full ml-4 font-bold text-3xl'>
               Почта
             </label>
@@ -83,7 +88,7 @@ const Form = (): JSX.Element => {
                 className='w-full p-4 rounded-2xl bg-transparent outline-none'
               />
             </div>
-          </div>
+          </div> */}
 
           <div className='mt-8'>
             <label htmlFor='bio' className='block w-full ml-4 font-bold text-3xl'>

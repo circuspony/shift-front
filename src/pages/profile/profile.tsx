@@ -62,7 +62,7 @@ const Profile = () => {
       <div className='flex flex-col w-full md:w-4/5 2xl:w-1/2 mb-20'>
         <div className='flex w-full py-4 items-center'>
           <h1 className='text-3xl '>Созданные проекты</h1>
-          <Link to='/profile/projectcreate' className='text-normal-text font-normal ml-auto'>
+          <Link to='/profile/create' className='text-normal-text font-normal ml-auto'>
             <Button className="flex py-2 px-8 ml-auto">
               <div>{"Создать проект"}</div>
             </Button>
