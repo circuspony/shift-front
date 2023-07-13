@@ -1,5 +1,5 @@
-import { axiosInstance } from ".";
-import { iProject } from "../utils/types";
+import { axiosInstance } from "..";
+import { iProject } from "../../utils/types";
 
 export const getProject = async (id: string) => {
     let status = {

@@ -1,6 +1,7 @@
-import { axiosInstance } from ".";
+import { axiosInstance } from "..";
+import { iProfile } from "../../utils/types";
 
-export const getUser = async () => {
+export const updateUser = async (body: iProfile) => {
     let status = {
         success: false, data: {
             id: "",
@@ -8,13 +9,12 @@ export const getUser = async () => {
             name: "",
             surname: "",
             patronymic: "",
-            avatarId: "",
             email: "",
             money: 0,
             bio: ""
         }
     }
-    await axiosInstance.get("/profiles")
+    await axiosInstance.put("/profiles", body)
         .then((response) => {
             status = { ...status, success: true, data: { ...status.data, ...response.data } }
         })

@@ -1,5 +1,5 @@
 import React, { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react';
-import { getUser } from '../api/getUser';
+import { getUser } from '../api/requests/getUser';
 import cookies from '../utils/cookies';
 import { AuthStatus, iProfile } from '../utils/types';
 

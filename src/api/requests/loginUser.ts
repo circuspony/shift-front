@@ -1,5 +1,5 @@
-import { axiosInstance } from ".";
-import cookies from "../utils/cookies";
+import { axiosInstance } from "..";
+import cookies from "../../utils/cookies";
 
 interface iLoginBody {
     password: string

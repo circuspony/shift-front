@@ -7,7 +7,7 @@ import { useRef } from "react";
 import PersonIcon from "../components/svg/personIcon";
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
-import { registerUser } from "../api/registerUser";
+import { registerUser } from "../api/requests/registerUser";
 
 function SignUp() {
     const [submitError, setSubmitError] = useState("")

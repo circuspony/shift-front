@@ -5,7 +5,7 @@ import Button from "../components/button";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useState } from "react";
-import { loginUser } from "../api/loginUser";
+import { loginUser } from "../api/requests/loginUser";
 
 function SignIn() {
   const [submitError, setSubmitError] = useState("")

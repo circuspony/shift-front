@@ -1,4 +1,4 @@
-import { findProjects } from "../../../api/findProjects";
+import { findProjects } from "../../../api/requests/findProjects";
 import Pagination from "./pagination";
 import SmallProjectCard from "../projectPanels/smallProjectCard"
 import { useState, useEffect } from "react";

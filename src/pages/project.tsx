@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from "react-router-dom";
-import { getProject } from "../api/getProject";
+import { getProject } from "../api/requests/getProject";
 import { projectExamples } from "../components/project/constants";
 import ProjectCard from "../components/project/project";
 import { iProject } from "../utils/types";

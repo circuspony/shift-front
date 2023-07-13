@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Form from '../../components/profilePage/form'
 import useAuth from '../../hooks/useAuth';
-import { uploadImage } from '../../api/uploadImage';
+import { uploadImage } from '../../api/requests/uploadImage';
 
 const EditProfile: React.FC = () => {
   const { userInfo, setUserInfo } = useAuth();

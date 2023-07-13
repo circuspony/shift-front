@@ -1,4 +1,4 @@
-import { axiosInstance } from ".";
+import { axiosInstance } from "..";
 
 export const uploadImage = async (file: File) => {
     let status = { success: false, avatarId: "" }

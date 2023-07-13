@@ -3,11 +3,11 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FieldValues, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { createProject } from '../../api/createProject.ts';
+import { createProject } from '../../api/requests/createProject.ts';
 import Button from '../button/index.tsx';
 import Categories from './categories.tsx';
 import UploadAndDisplayImage from './uploadimages.tsx';
-import { uploadImage } from '../../api/uploadImage.ts';
+import { uploadImage } from '../../api/requests/uploadImage.ts';
 
 const ProjectForm = (): JSX.Element => {
   const { register, setValue, formState: { errors }, handleSubmit } = useForm({});

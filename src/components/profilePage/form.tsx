@@ -5,7 +5,7 @@ import { IoMdPlanet } from 'react-icons/io';
 import { TiSocialFacebook, TiSocialTwitter, TiSocialInstagram } from 'react-icons/ti';
 import Button from '../button/index.tsx';
 import useAuth from '../../hooks/useAuth.ts';
-import { updateUser } from '../../api/updateUser.ts';
+import { updateUser } from '../../api/requests/updateUser.ts';
 
 const Form = (): JSX.Element => {
   const { userInfo, setUserInfo } = useAuth();
