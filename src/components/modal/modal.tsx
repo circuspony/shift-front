@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import Button from '../button';
 
 interface ModalProps {
   visible: boolean;
@@ -26,23 +27,32 @@ const Modal = ({ visible = false, title = '', content = '', footer = '', onClose
 
   return (
     <div
-      className='fixed top-0 left-0 w-full z-9999 flex items-center justify-center'
+      className='fixed top-0 left-0 bottom-0 w-full z-9999 flex items-center justify-center'
       onClick={onClose}
     >
       <div
         className='w-full max-w-[550px] bg-white relative mx-5 max-h-[100vh-40px] text-left flex flex-col overflow-hidden'
         onClick={(e) => e.stopPropagation()}
       >
-        <div className='flex items-center p-4'>
-          <h3 className='m-0'>{title}</h3>
-          <span className='cursor-pointer p-4 m-auto' onClick={onClose}>
-            &times;
-          </span>
-        </div>
         <div className='overflow-auto'>
-          <div className='p-4'>{content}</div>
+          <div className='p-4'>
+            <div className='text-3xl mt-4 text-center'>Поддержать проект</div>
+            <form autoComplete='off' className='flex flex-col'>
+              <div className='flex items-center mt-4'>
+                <input
+                  className='w-full text-xl p-4 rounded-md border-input-border border-2 outline-none mx-8'
+                  placeholder='Введите сумму'
+                />
+              </div>
+
+              <div className='flex w-full px-8 py-4'>
+                <Button type='submit' className='py-4 text-xl w-full'>
+                  <span className='mx-auto'>Отправить</span>
+                </Button>
+              </div>
+            </form>
+          </div>
         </div>
-        {footer && <div className='flex items-center p-4'>{footer}</div>}
       </div>
     </div>
   );
