@@ -1,24 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CustomSelect from '../inputs/select';
-import categoriesList from './categorieslist';
+import { projectCategories } from '../project/constants';
 
-function Categories() {
+function Categories({ setCategory }: { setCategory: Function }) {
   const [selectedCategory, setSelectedCategory] = useState({ label: 'Категория', value: '' });
-
-  const categoryObj = categoriesList;
-
-  const categoryArr = Object.entries(categoryObj).map(([key, value]) => {
-    return {
-      label: value,
-      value: key
-    };
-  });
-
+  useEffect(() => {
+    setCategory(selectedCategory)
+  }, [selectedCategory])
   return (
     <CustomSelect
       option={selectedCategory}
       setOption={setSelectedCategory}
-      selectArray={categoryArr}
+      selectArray={projectCategories.slice(1)}
     />
   );
 }
