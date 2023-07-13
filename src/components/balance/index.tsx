@@ -1,13 +1,10 @@
+import { useState } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 import Button from "../button";
 import CoinIcon from "../svg/coinIcon";
-import { useState } from "react";
-import { useForm, FieldValues } from "react-hook-form";
-import { Navigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
 
 
 function Balance() {
-    const { isSignedIn } = useAuth()
     const [success, setSuccess] = useState(false)
     const { register, formState: { errors }, handleSubmit, setError, reset } = useForm({});
     const onSubmit = (data: FieldValues) => {
@@ -18,13 +15,6 @@ function Balance() {
         else {
             setError('promo', { type: 'custom', message: 'Такого кода не существует!' });
         }
-    }
-
-    if (!isSignedIn) {
-        return <>
-            <Navigate to="/" replace={true}
-            />
-        </>
     }
     return (
         <div className="flex w-full max-w-screen-2xl mx-auto">
