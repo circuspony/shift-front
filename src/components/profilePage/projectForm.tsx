@@ -3,20 +3,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FieldValues, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { createProject } from '../../api/createProject.ts';
 import Button from '../button/index.tsx';
 import Categories from './categories.tsx';
 import UploadAndDisplayImage from './uploadimages.tsx';
+import { uploadImage } from '../../api/uploadImage.ts';
 
 const ProjectForm = (): JSX.Element => {
   const { register, setValue, formState: { errors }, handleSubmit } = useForm({});
-  const [startDate, setStartDate] = useState(new Date());
+  const [finishDate, setFinishDate] = useState(new Date());
 
   const navigate = useNavigate();
-  const onSubmit = (data: FieldValues) => {
-    console.log("data");
-    console.log(data);
-    navigate('/profile');
-  };
   useEffect(() => {
     register("category", {
       value: "",
@@ -32,6 +29,32 @@ const ProjectForm = (): JSX.Element => {
       value: [],
     })
   }, [])
+
+  const onSubmit = async (data: FieldValues) => {
+    console.log("data");
+    console.log(data);
+    const avatarUploadStatus = await uploadImage(data.avatarId)
+    if (avatarUploadStatus.success) {
+      const attachments = await Promise.all(
+        data.attachmentIds.map((image: File) => {
+          return uploadImage(image)
+        }))
+
+      const createProjectStatus = await createProject({
+        title: data.title,
+        summary: data.summary,
+        description: data.description,
+        targetAmount: data.targetAmount,
+        category: data.category,
+        finishDate: finishDate,
+        avatarId: avatarUploadStatus.avatarId,
+        attachmentIds: attachments.map((attachment) => attachment.avatarId)
+      })
+      if (createProjectStatus.success) {
+        navigate('/profile');
+      }
+    }
+  };
   return (
     <div className='w-full'>
       <div className=''>
@@ -107,7 +130,7 @@ const ProjectForm = (): JSX.Element => {
               <label htmlFor='email' className='block w-full mt-4 ml-4 font-bold text-3xl'>
                 Дата окончания
               </label>
-              <DatePicker wrapperClassName="w-full" className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-4 outline-none' selected={startDate} onChange={(date: Date) => setStartDate(date)} />
+              <DatePicker wrapperClassName="w-full" className='w-full border-solid border-2 p-4 rounded-2xl bg-transparent mt-4 outline-none' selected={finishDate} onChange={(date: Date) => setFinishDate(date)} />
             </div>
           </div>
           <label htmlFor='email' className='block w-full mt-4 ml-4 font-bold text-3xl'>
