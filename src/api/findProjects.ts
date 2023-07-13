@@ -1,6 +1,6 @@
 import { axiosInstance } from ".";
 
-interface ProjectSearchBody {
+interface iProjectSearchBody {
     pagingParams: {
         page: number
         size: number
@@ -19,7 +19,7 @@ interface ProjectSearchBody {
     }
 }
 
-export const findProjects = async (body: ProjectSearchBody) => {
+export const findProjects = async (body: iProjectSearchBody) => {
     let status = {
         success: false, data: {
             pagingParams: {

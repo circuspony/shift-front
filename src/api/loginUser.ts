@@ -1,12 +1,12 @@
 import { axiosInstance } from ".";
 import cookies from "../utils/cookies";
 
-interface LoginBody {
+interface iLoginBody {
     password: string
     email: string
 }
 
-export const loginUser = async (body: LoginBody) => {
+export const loginUser = async (body: iLoginBody) => {
     let status = { success: false, message: "" }
     await axiosInstance.post("/auth/login", body)
         .then((response) => {
