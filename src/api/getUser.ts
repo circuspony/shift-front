@@ -8,6 +8,7 @@ export const getUser = async () => {
             name: "",
             surname: "",
             patronymic: "",
+            avatarId: "",
             email: "",
             money: 0,
             bio: ""

@@ -32,8 +32,8 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<Aut
             <div className='group relative'>
                 <div
                     onClick={() => navigate("/profile")}
-                    className=" w-10 h-10 rounded-full cursor-pointer overflow-hidden">
-                    <img src="/images/amogus.jpg" />
+                    className=" w-12 h-12 rounded-full cursor-pointer overflow-hidden">
+                    <img src={userInfo.avatarId ? `http://kosterror.ru:8081/api/v1/files/${userInfo.avatarId}` : '/images/amogus.jpg'} />
                 </div>
                 <div className="absolute transition-all duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible border-custom-gray border-2 bg-white p-2 mt-8 rounded-md top-full -right-2">
                     <div

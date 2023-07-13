@@ -1,17 +1,24 @@
 import React, { useState, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Form from '../../components/profilePage/form'
+import useAuth from '../../hooks/useAuth';
+import { uploadImage } from '../../api/uploadImage';
 
 const EditProfile: React.FC = () => {
-  const [, setFileUrl] = useState<string | null>(null);
+  const { userInfo, setUserInfo } = useAuth();
 
   const onDrop = useCallback(async (acceptedFile: File[]) => {
-    setFileUrl(acceptedFile[0].toString());
+    const uploadImageStatus = await uploadImage(acceptedFile[0])
+    if (uploadImageStatus.success) {
+      setUserInfo({
+        ...userInfo,
+        avatarId: uploadImageStatus.avatarId
+      })
+    }
   }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-
     maxSize: 5000000
   });
 
@@ -29,7 +36,7 @@ const EditProfile: React.FC = () => {
         <div className='mt-4 relative text-center'>
           <input {...getInputProps()} />
           <img
-            src={'/images/cat.jpg'}
+            src={userInfo.avatarId ? `http://kosterror.ru:8081/api/v1/files/${userInfo.avatarId}` : '/images/amogus.jpg'}
             alt=''
             className='w-36 h-36 mt-8 m-auto rounded-full relative text-center justify-center'
           />

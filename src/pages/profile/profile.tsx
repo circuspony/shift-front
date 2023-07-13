@@ -9,13 +9,14 @@ import Button from '../../components/button';
 
 const Profile = () => {
   const { userInfo } = useAuth();
-
+  console.log("userInfo")
+  console.log(userInfo)
   return (
     <div className='w-full h-full flex flex-col items-center px-8 md:px-0'>
       <div className='bg-slate-900 w-full md:w-4/5 2xl:w-1/2 min-h-[200px] rounded-2xl'>
         <div className='flex p-4 m-4 relative items-center'>
           <img
-            src={'/images/cat.jpg'}
+            src={userInfo.avatarId ? `http://kosterror.ru:8081/api/v1/files/${userInfo.avatarId}` : '/images/amogus.jpg'}
             alt=''
             className='flex w-36 h-36 border-solid border-white rounded-full'
           />
