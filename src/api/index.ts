@@ -32,7 +32,7 @@ axiosInstance.interceptors.response.use(
                 return axiosInstance({ ...originalRequest, headers: { common: { "Authorization": "Bearer " + accessToken } } });
             }
             catch (_error) {
-                return Promise.reject(_error);
+                return Promise.reject(error);
             }
         }
         return Promise.reject(error);
