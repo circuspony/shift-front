@@ -31,9 +31,8 @@ const CustomSelect = ({
           </div>
 
           <div
-            className={`dropdown-scroll absolute border-solid border-2 rounded-lg top-14 h-48 overflow-scroll w-full py-4 px-2 left-0 overflow-x-hidden bg-white z-50 ${
-              dropDownOpen ? 'flex flex-col' : 'hidden'
-            }`}
+            className={`dropdown-scroll absolute border-solid border-2 rounded-lg top-14 max-h-48 overflow-scroll w-full py-4 px-2 left-0 overflow-x-hidden bg-white z-50 ${dropDownOpen ? 'flex flex-col' : 'hidden'
+              }`}
           >
             {!!selectArray?.length &&
               selectArray.map((selectObject, i) => (
