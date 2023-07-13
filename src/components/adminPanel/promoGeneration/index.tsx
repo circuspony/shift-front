@@ -6,7 +6,7 @@ import { createPromo } from "../../../api/requests/createPromo";
 function PromoGeneration() {
     const [success, setSuccess] = useState(false)
     const [codes, setCodes] = useState([])
-    const { register, formState: { errors }, handleSubmit, setError, reset } = useForm({});
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({});
     const onSubmit = async (data: FieldValues) => {
 
         const createPromoStatus = await createPromo({ count: data.count, amount: data.amount })
