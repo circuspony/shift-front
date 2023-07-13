@@ -3,10 +3,12 @@ import { Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import ProjectModeration from "./projectModeration";
 import UserModeration from "./userModeration";
+import PromoGeneration from "./promoGeneration";
 
 enum AdminModes {
     MODERATION = "MODERATION",
-    USER_ROLES = "USER_ROLES"
+    USER_ROLES = "USER_ROLES",
+    PROMOCODES = "PROMOCODES"
 }
 function AdminPanel() {
     const { isAdmin, isModer } = useAuth()
@@ -31,9 +33,15 @@ function AdminPanel() {
                     className={`cursor-pointer font-semibold rounded-md py-2 px-8 ml-8 ${mode === AdminModes.USER_ROLES ? "bg-light-gray " : ""} text-normal-text hover:text-normal-text`}>
                     Модерация пользователей
                 </div>}
+                {isAdmin && <div
+                    onClick={() => setMode(AdminModes.PROMOCODES)}
+                    className={`cursor-pointer font-semibold rounded-md py-2 px-8 ml-8 ${mode === AdminModes.PROMOCODES ? "bg-light-gray " : ""} text-normal-text hover:text-normal-text`}>
+                    Промокоды
+                </div>}
             </div>
             {mode === AdminModes.MODERATION && <ProjectModeration />}
             {mode === AdminModes.USER_ROLES && isAdmin && <UserModeration />}
+            {mode === AdminModes.PROMOCODES && isAdmin && <PromoGeneration />}
         </div>
     )
 }
