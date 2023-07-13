@@ -1,14 +1,13 @@
-import React, { ReactNode, useState, Dispatch, SetStateAction, useEffect } from 'react';
-import { Profile } from '../utils/types';
-import cookies from '../utils/cookies';
-import { AuthStatus } from '../utils/types';
+import React, { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react';
 import { getUser } from '../api/getUser';
+import cookies from '../utils/cookies';
+import { AuthStatus, iProfile } from '../utils/types';
 
 interface iUserContext {
   isSignedIn?: AuthStatus;
   setIsSignedIn: Dispatch<SetStateAction<AuthStatus>>;
-  userInfo: Profile;
-  setUserInfo: Dispatch<SetStateAction<Profile>>;
+  userInfo: iProfile;
+  setUserInfo: Dispatch<SetStateAction<iProfile>>;
   authorizeUser: Function
   isAdmin: boolean
   isModer: boolean

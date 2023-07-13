@@ -1,8 +1,8 @@
 
 import { Link } from "react-router-dom"
-import { Creator } from "../../utils/types"
+import { iCreator } from "../../utils/types"
 
-function ProjectCreator({ creator }: { creator: Creator }) {
+function ProjectCreator({ creator }: { creator: iCreator }) {
     return (
         <div className="flex items-center my-8">
             <img className="w-20 h-20 rounded-md shadow-lg" src={creator.avatar} />

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom"
-import { Project } from "../../../utils/types"
+import { ProjectStatus, iProject } from "../../../utils/types"
 import CoinIcon from "../../svg/coinIcon"
-import { ProjectStatus } from "../../../utils/types"
 import { projectCategories } from "../constants"
 
-function SmallProjectCard({ project }: { project: Project }) {
+function SmallProjectCard({ project }: { project: iProject }) {
     return (
         <Link to={`/project/${project.id}`} className="flex flex-col group my-2 text-normal-text hover:text-normal-text bg-white overflow-hidden rounded-md border-custom-gray border-2 ">
             <div

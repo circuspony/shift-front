@@ -1,5 +1,5 @@
-import { Project } from "../../utils/types"
 import { useState } from 'react'
+import { iProject } from "../../utils/types"
 import ProjectDescription from "./projectDescription"
 import ProjectSponsors from "./projectSponsors"
 
@@ -10,7 +10,7 @@ enum ProjectInfoMode {
 
 }
 
-function ProjectInfo({ project }: { project: Project }) {
+function ProjectInfo({ project }: { project: iProject }) {
     const [currentMode, setCurrentMode] = useState(ProjectInfoMode.DESCRIPTION)
     return (
         <>

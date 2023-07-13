@@ -1,13 +1,13 @@
 export type AuthStatus = boolean | undefined
 
-export interface Creator {
+export interface iCreator {
     firstName: string
     lastName: string
     avatar: string
     projectNumber: number
 }
 
-export interface Profile {
+export interface iProfile {
     name: string
     surname: string
     patronymic: string,
@@ -27,7 +27,7 @@ export enum ProjectStatus {
     ACTIVE = "ACTIVE",
     FINISHED = "FINISHED"
 }
-export interface Project {
+export interface iProject {
     id?: string
     title: string
     summary?: string
@@ -42,5 +42,5 @@ export interface Project {
     creationDate: Date
     finishDate: Date
     category: string
-    creator: Creator
+    creator: iCreator
 }

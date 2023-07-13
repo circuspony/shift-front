@@ -15,17 +15,7 @@ const ProjectForm = (): JSX.Element => {
   const onSubmit = (data: FieldValues) => {
     console.log("data");
     console.log(data);
-    // navigate('/profile');
-    // setUserInfo({
-    //   ...userInfo,
-    //   firstname: data.firstname,
-    //   lastname: data.lastname,
-    //   description: data.description,
-    //   personalWebLink: data.personalWebLink,
-    //   facebookLink: data.facebookLink,
-    //   twitterLink: data.twitterLink,
-    //   instagramLink: data.instagramLink
-    // });
+    navigate('/profile');
   };
   useEffect(() => {
     register("category", {

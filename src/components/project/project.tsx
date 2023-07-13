@@ -1,13 +1,12 @@
 
-import SmallStatusBar from "./smallStatusBar"
 import { Helmet } from "react-helmet";
-import { Project } from "../../utils/types";
+import { iProject } from "../../utils/types";
 import ProgressPanel from "./progressPanel";
 import ProjectCreator from "./projectCreator";
 import ProjectInfo from "./projectInfo";
+import SmallStatusBar from "./smallStatusBar";
 
-function ProjectCard({ project }: { project: Project }) {
-
+function Project({ project }: { project: iProject }) {
     return (
         <div className="flex flex-col w-full h-full min-h-screen bg-gray-100 pb-20">
             <Helmet>
@@ -35,4 +34,4 @@ function ProjectCard({ project }: { project: Project }) {
     )
 }
 
-export default ProjectCard
+export default Project

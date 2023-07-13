@@ -1,7 +1,7 @@
 import { axiosInstance } from ".";
-import { Profile } from "../utils/types";
+import { iProfile } from "../utils/types";
 
-export const updateUser = async (body: Profile) => {
+export const updateUser = async (body: iProfile) => {
     let status = {
         success: false, data: {
             id: "",
