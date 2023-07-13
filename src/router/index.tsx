@@ -12,11 +12,18 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import SearchPage from "../pages/search";
+import ModeratorPage from "../pages/moderate";
 
 const router = createBrowserRouter(
   [{
     element: <Layout />,
     children: [
+      {
+        path: "moderate",
+        element: <ProtectedRoute>
+          <ModeratorPage />
+        </ProtectedRoute>
+      },
       {
         path: "balance",
         element: <ProtectedRoute>

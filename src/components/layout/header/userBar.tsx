@@ -1,14 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
-import ExitIcon from "../../svg/exiticon";
-import SettingsIcon from "../../svg/settingsIcon";
-import CoinIcon from "../../svg/coinIcon";
-import WalletIcon from "../../svg/walletIcon";
 import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import cookies from "../../../utils/cookies";
 import { AuthStatus } from "../../../utils/types";
-import useAuth from "../../../hooks/useAuth";
+import CoinIcon from "../../svg/coinIcon";
+import ExitIcon from "../../svg/exiticon";
 import PersonIcon from "../../svg/personIcon";
-import PiggyIcon from "../../svg/piggyIcon";
+import SettingsIcon from "../../svg/settingsIcon";
+import WalletIcon from "../../svg/walletIcon";
 
 function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<AuthStatus>> }) {
     const navigate = useNavigate();
@@ -45,20 +44,14 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<Aut
                         <span className="ml-4">Настройки</span>
                     </div>
                     {isModer || isAdmin && <div
-                        onClick={() => { }}
+                        onClick={() => {
+                            navigate("/moderate")
+                        }}
                         className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
                         <div className="w-5 h-5">
                             <PersonIcon />
                         </div>
                         <span className="ml-4">Модерация</span>
-                    </div>}
-                    {isAdmin && <div
-                        onClick={() => { }}
-                        className="flex items-center cursor-pointer w-40 p-2 transition-all duration-300 rounded-md hover:bg-gray-200">
-                        <div className="w-5 h-5">
-                            <PiggyIcon />
-                        </div>
-                        <span className="ml-4">Админка</span>
                     </div>}
                     <div
                         onClick={() => {

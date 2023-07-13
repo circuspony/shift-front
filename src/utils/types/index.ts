@@ -44,3 +44,9 @@ export interface iProject {
     category: string
     creator: iCreator
 }
+
+export interface iRequest {
+    id: string
+    creationDate: Date
+    fullProjectDto: iProject
+}

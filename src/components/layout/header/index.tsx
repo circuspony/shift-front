@@ -1,8 +1,8 @@
-import Button from "../../button"
 import { Link, useNavigate } from "react-router-dom";
-import UserBar from "./userBar";
-import PiggyIcon from "../../svg/piggyIcon";
 import useAuth from "../../../hooks/useAuth";
+import Button from "../../button";
+import PiggyIcon from "../../svg/piggyIcon";
+import UserBar from "./userBar";
 
 function Header() {
     const { isSignedIn, setIsSignedIn } = useAuth()

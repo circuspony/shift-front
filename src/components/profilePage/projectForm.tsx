@@ -24,6 +24,10 @@ const ProjectForm = (): JSX.Element => {
     })
     register("avatarId", {
       value: null,
+      validate: {
+        noValue: (v) =>
+          v !== null || "Главное изображение должно быть выбрано",
+      },
     })
     register("attachmentIds", {
       value: [],
@@ -139,6 +143,7 @@ const ProjectForm = (): JSX.Element => {
           <div className='w-full flex mt-4 relative text-center justify-center'>
             <UploadAndDisplayImage setAttachments={(images: File[]) => { setValue('avatarId', images[0]) }} />
           </div>
+          {errors?.avatarId?.message ? <p className="ml-4 mt-4 text-red-500 text-sm">{errors?.avatarId?.message.toString()}</p> : null}
           <label htmlFor='email' className='block w-full mt-4 ml-4 font-bold text-3xl'>
             Дополнительные изображения
           </label>
@@ -148,7 +153,7 @@ const ProjectForm = (): JSX.Element => {
 
           <div className='flex w-full py-4'>
             <Button type='submit' className='py-4 text-xl w-full bg-slate-700'>
-              <span className='mx-auto text-white'>Обновить</span>
+              <span className='mx-auto text-white'>Создать</span>
             </Button>
           </div>
         </form>
