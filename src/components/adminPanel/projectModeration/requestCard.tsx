@@ -1,13 +1,12 @@
-import { Dispatch, SetStateAction } from "react";
 import { approveProjectRequest } from "../../../api/requests/approveProjectRequest";
 import { iRequest } from "../../../utils/types";
 import Button from "../../button";
 
-function ProjectRequestPage({ request, setCurrentRequest }: { request: iRequest | null, setCurrentRequest: Dispatch<SetStateAction<iRequest | null>> }) {
+function ProjectRequestCard({ request, refreshPage }: { request: iRequest | null, refreshPage: Function }) {
     const approveProject = async () => {
         const approveStatus = await approveProjectRequest(request?.id, true)
         if (approveStatus.success) {
-            setCurrentRequest(null)
+            refreshPage()
         }
     }
     return (
@@ -23,7 +22,7 @@ function ProjectRequestPage({ request, setCurrentRequest }: { request: iRequest 
                     {request?.fullProjectDto.title}
                 </span>
                 <span className="my-2">
-                    <span className="font-bold ">{"Красткое описание: "}</span >
+                    <span className="font-bold ">{"Краткое описание: "}</span >
                     {request?.fullProjectDto.summary}
                 </span>
                 <span className="my-2">
@@ -40,13 +39,12 @@ function ProjectRequestPage({ request, setCurrentRequest }: { request: iRequest 
                 </span>
                 <div className="text-xl font-bold my-2">ОДОБРЯЮ?</div>
                 <Button
-                    onClick={() => { approveProject() }}
-                    className="еуче-сутеук">
-                    <span className="w-full py-4">КОНЕЧНО ОДОБРЯЮ</span>
+                    onClick={() => { approveProject() }}>
+                    <span className="w-full py-4 ">КОНЕЧНО ОДОБРЯЮ</span>
                 </Button>
             </div>}
         </>
     )
 }
 
-export default ProjectRequestPage
+export default ProjectRequestCard

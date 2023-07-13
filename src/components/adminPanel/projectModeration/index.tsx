@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { findProjectRequests } from "../../../api/requests/findProjectRequests";
-import { iProject, iRequest } from "../../../utils/types";
+import { iRequest } from "../../../utils/types";
 import Pagination from "../../project/projectSearch/pagination";
-import ProjectRequestPage from "./requestPage";
+import ProjectRequestCard from "./requestCard";
 
 function ProjectModeration() {
     const [requests, setRequests] = useState([])
@@ -18,28 +18,29 @@ function ProjectModeration() {
             setTotalPages(requestSearchStatus.data.pagingParams.totalPages)
         }
     }
+    const refreshPage = () => {
+        requestSearch()
+        setCurrentRequest(null)
+    }
 
     useEffect(() => {
-        setCurrentRequest(null)
+        refreshPage()
     }, [page])
 
-    useEffect(() => {
-        requestSearch()
-    }, [currentRequest])
     return (
         <>
             <div className="flex w-full">
                 <div className="flex flex-col w-1/3">
-                    {requests.map((request: { id: string, creationDate: Date, fullProjectDto: iProject }) => <div
+                    {requests.map((request: iRequest) => <div
                         onClick={() => { setCurrentRequest(request) }}
-                        className={`my-2 p-4 rounded-md flex flex-col cursor-pointer w-full text-sm ${currentRequest?.id === request.id ? "bg-light-gray" : ""}`}>
+                        className={`my-2 p-4 rounded-md flex flex-col cursor-pointer w-full text-sm ${currentRequest?.id === request.id && "bg-light-gray"}`}>
                         <span className="font-bold my-2">{"ID: " + request.fullProjectDto.id}</span>
                         <span className="my-2">{request.fullProjectDto.title}</span>
 
                     </div>)}
                 </div>
-                <div className="flex flex-col w-2/3 px-8">
-                    <ProjectRequestPage request={currentRequest} setCurrentRequest={setCurrentRequest} />
+                <div className="flex flex-col w-2/3 px-8 ml-4">
+                    <ProjectRequestCard request={currentRequest} refreshPage={refreshPage} />
                 </div>
             </div>
             <Pagination totalPages={totalPages} page={page} setPage={setPage} />

@@ -8,9 +8,11 @@ export interface iCreator {
 }
 
 export interface iProfile {
+    id?: string
     name: string
     surname: string
     patronymic: string,
+    role?: string,
     avatarId: string,
     email: string,
     bio: string

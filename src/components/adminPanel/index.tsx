@@ -20,7 +20,7 @@ function AdminPanel() {
     }
     return (
         <div className="flex flex-col w-full max-w-5xl mx-auto">
-            <div className="flex">
+            <div className="flex mb-4">
                 <div
                     onClick={() => setMode(AdminModes.MODERATION)}
                     className={`cursor-pointer font-semibold rounded-md py-2 px-8 ${mode === AdminModes.MODERATION ? "bg-light-gray " : ""} text-normal-text hover:text-normal-text`}>
