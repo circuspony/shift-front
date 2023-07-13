@@ -1,5 +1,5 @@
 import { useState, Dispatch, SetStateAction } from 'react';
-import Arrow from '../images/downarrow.svg';
+import Arrow from '../svg/downarrow.svg';
 
 interface SelectOption {
   label: string;
