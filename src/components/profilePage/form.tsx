@@ -15,11 +15,10 @@ const Form = (): JSX.Element => {
   } = useForm({
     defaultValues: userInfo
   });
+
   const navigate = useNavigate();
 
-
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
     const newProfile = {
       ...userInfo,
       name: data.name,

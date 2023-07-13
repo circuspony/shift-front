@@ -18,6 +18,7 @@ const defaultProfile = {
   name: '',
   surname: '',
   patronymic: '',
+  avatarId: '',
   email: "",
   bio: 'Миллионер, криптоинвестор, плейбой',
   personalWebLink: '',
@@ -63,6 +64,7 @@ export const UserContextProvider = ({
         setUserInfo({
           ...userInfo,
           name: profileStatus?.data?.name || "",
+          avatarId: profileStatus?.data?.avatarId || "",
           surname: profileStatus?.data?.surname || "",
           email: profileStatus?.data?.email || "",
           patronymic: profileStatus?.data?.patronymic || "",

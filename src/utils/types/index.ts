@@ -11,6 +11,7 @@ export interface Profile {
     name: string
     surname: string
     patronymic: string,
+    avatarId: string,
     email: string,
     bio: string
     money: number
