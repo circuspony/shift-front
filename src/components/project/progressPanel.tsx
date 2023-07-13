@@ -1,36 +1,18 @@
+import { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import { calculateTime } from '../../utils/calculateTime';
 import { iProject } from '../../utils/types';
 import Button from '../button';
+import Modal from '../modal/modal';
 import ChecListIcon from '../svg/checkListIcon';
 import CoinIcon from '../svg/coinIcon';
-import { projectCategories } from './constants';
-import ModalWindow from '../modal/modalwindow';
-import Modal from '../modal/modal';
-import { useState } from 'react';
-
-const months = [
-  'января',
-  'февраля',
-  'марта',
-  'апреля',
-  'мая',
-  'июня',
-  'июля',
-  'августа',
-  'сентября',
-  'октября',
-  'ноября',
-  'декабря'
-];
+import { months, projectCategories } from './constants';
 
 function ProgressPanel({ project }: { project: iProject }) {
   const { isSignedIn } = useAuth();
 
-  //   const [showModal, setShowModal] = useState(false);
-  //   const openModal = () => {
-  //     setShowModal((showModal) => !showModal);
-  //   };
+  const [isModal, setModal] = useState(false);
+  const onClose = () => setModal(false);
 
   return (
     <>
@@ -89,10 +71,16 @@ function ProgressPanel({ project }: { project: iProject }) {
       {isSignedIn ? (
         <>
           <div className='flex w-full mt-4 justify-center relative'>
-            <ModalWindow />
-            {/* <Button className='py-3 text-xl w-full' onClick={ModalWindow}>
+            <Button className='py-3 text-xl w-full' onClick={() => setModal(true)}>
               <span className='mx-auto'>Поддержать проект</span>
-            </Button> */}
+            </Button>
+            <Modal
+              visible={isModal}
+              title='Заголовок'
+              content={<p>Что-то важное</p>}
+              footer={<Button onClick={onClose}>Закрыть</Button>}
+              onClose={onClose}
+            />
           </div>
         </>
       ) : (

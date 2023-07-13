@@ -9,7 +9,7 @@ interface ModalProps {
   onClose: () => void;
 }
 
-const Modal = ({ visible = false, title = '', content = '', footer = '', onClose }: ModalProps) => {
+const Modal = ({ visible = false, onClose }: ModalProps) => {
   const onKeydown = ({ key }: KeyboardEvent) => {
     switch (key) {
       case 'Escape':
