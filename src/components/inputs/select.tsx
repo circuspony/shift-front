@@ -26,7 +26,7 @@ const CustomSelect = ({
           >
             {option.label}
             <div className='flex items-center justify-end'>
-              <img src={Arrow} alt='Arrow' className='w-4 h-4 top-0 left-0' />
+              <img src={Arrow} alt='Arrow' className='w-4 h-4 top-0 left-0 ' />
             </div>
           </div>
 
