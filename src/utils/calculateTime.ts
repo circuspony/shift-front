@@ -3,5 +3,5 @@ export const calculateTime = (time1: number, time2: number) => {
     if (timeRemaining >= 1) return Math.floor(timeRemaining) + " дн."
     if (timeRemaining * 24 >= 1) return Math.floor(timeRemaining * 24) + " ч."
     if (timeRemaining * 24 * 60 >= 1) return Math.floor(timeRemaining * 24 * 60) + " мин."
-    return ""
+    throw Error("No correct time estimates")
 }
