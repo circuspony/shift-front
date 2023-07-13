@@ -43,7 +43,7 @@ function UserBar({ setIsSignedIn }: { setIsSignedIn: Dispatch<SetStateAction<Aut
                         </div>
                         <span className="ml-4">Настройки</span>
                     </div>
-                    {isModer || isAdmin && <div
+                    {(isModer || isAdmin) && <div
                         onClick={() => {
                             navigate("/moderate")
                         }}
