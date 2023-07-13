@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Form from '../../components/profilePage/form'
 import useAuth from '../../hooks/useAuth';

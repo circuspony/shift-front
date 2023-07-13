@@ -7,7 +7,7 @@ import Categories from './categories.tsx';
 import UploadAndDisplayImage from './uploadimages.tsx';
 
 const ProjectForm = (): JSX.Element => {
-  const { userInfo, setUserInfo } = useAuth();
+  const { userInfo } = useAuth();
   const {
     // formState: { errors },
     handleSubmit
