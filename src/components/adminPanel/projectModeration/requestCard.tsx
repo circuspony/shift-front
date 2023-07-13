@@ -12,7 +12,7 @@ function ProjectRequestCard({ request, refreshPage }: { request: iRequest | null
     return (
         <>
             {request?.fullProjectDto && <div className="w-full flex flex-col">
-                <h1 className="text-3xl my-4">Просмотр проекта</h1>
+                <h1 className="text-3xl my-4">Просмотр пользователя</h1>
                 <span className="my-2">
                     <span className="font-bold ">{"ID: "}</span >
                     {request?.fullProjectDto.id}
