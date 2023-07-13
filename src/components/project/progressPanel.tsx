@@ -27,10 +27,10 @@ const months = [
 function ProgressPanel({ project }: { project: iProject }) {
   const { isSignedIn } = useAuth();
 
-  const [showModal, setShowModal] = useState(false);
-  const openModal = () => {
-    setShowModal((showModal) => !showModal);
-  };
+  //   const [showModal, setShowModal] = useState(false);
+  //   const openModal = () => {
+  //     setShowModal((showModal) => !showModal);
+  //   };
 
   return (
     <>
