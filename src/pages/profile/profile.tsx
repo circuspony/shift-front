@@ -71,24 +71,23 @@ const Profile = () => {
           </Link>
         </div>
       </div>
-      {projects.length !== 0 &&
-        <div className='flex flex-col w-full md:w-4/5 2xl:w-1/2 mb-20'>
-          <div className='flex w-full py-4 items-center'>
-            <h1 className='text-3xl '>Созданные проекты</h1>
-            <Link to='/profile/create' className='text-normal-text font-normal ml-auto'>
-              <Button className="flex py-2 px-8 ml-auto">
-                <div>{"Создать проект"}</div>
-              </Button>
-            </Link>
-          </div>
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-            {projects.map((project) => (
-              <SmallProjectCard project={project} />
-            ))}
-          </div>
-        </div>
 
-      }
+      <div className='flex flex-col w-full md:w-4/5 2xl:w-1/2 mb-20'>
+        <div className='flex w-full py-4 items-center'>
+          <h1 className='text-3xl '>Созданные проекты</h1>
+          <Link to='/profile/create' className='text-normal-text font-normal ml-auto'>
+            <Button className="flex py-2 px-8 ml-auto">
+              <div>{"Создать проект"}</div>
+            </Button>
+          </Link>
+        </div>
+        {projects.length !== 0 && <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          {projects.map((project) => (
+            <SmallProjectCard project={project} />
+          ))}
+        </div>}
+        {projects.length === 0 && <div className='mx-auto mt-8'>Тут ничего нет</div>}
+      </div>
     </div>
   );
 };
