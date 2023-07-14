@@ -13,7 +13,7 @@ const statuses = [
 const searchBodyDefault = {
     pagingParams: {
         page: 0,
-        size: 3
+        size: 6
     },
     filteringParams: {
         title: "",
