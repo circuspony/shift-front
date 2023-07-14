@@ -6,7 +6,7 @@ import ProjectCreator from "./projectCreator";
 import ProjectInfo from "./projectInfo";
 import SmallStatusBar from "./smallStatusBar";
 
-function Project({ project }: { project: iProject }) {
+function Project({ project, updateProject }: { project: iProject, updateProject: Function }) {
     return (
         <div className="flex flex-col w-full h-full min-h-screen bg-gray-100 pb-20">
             <Helmet>
@@ -24,7 +24,7 @@ function Project({ project }: { project: iProject }) {
 
                     </div>
                     <div className="flex flex-col mt-8 lg:mt-0 lg:px-8 w-full lg:w-2/5 xl:w-1/3">
-                        <ProgressPanel project={project} />
+                        <ProgressPanel updateProject={updateProject} project={project} />
                     </div>
                 </div>
                 <ProjectCreator creator={project.creator} />

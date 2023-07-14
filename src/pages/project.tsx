@@ -26,6 +26,7 @@ function ProjectPage() {
         <>
             {project && <ProjectCard
                 project={project}
+                updateProject={(newInfo: iProject) => setProject({ ...project, ...newInfo })}
             />}
         </>
 

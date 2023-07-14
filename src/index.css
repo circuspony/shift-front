@@ -51,3 +51,8 @@ body {
   background-clip: content-box;
   background-color: #727272;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

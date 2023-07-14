@@ -3,12 +3,12 @@ import useAuth from '../../hooks/useAuth';
 import { calculateTime } from '../../utils/calculateTime';
 import { iProject } from '../../utils/types';
 import Button from '../button';
-import Modal from '../modal/modal';
 import ChecListIcon from '../svg/checkListIcon';
 import CoinIcon from '../svg/coinIcon';
 import { months, projectCategories } from './constants';
+import SupportModal from './supportModal';
 
-function ProgressPanel({ project }: { project: iProject }) {
+function ProgressPanel({ project, updateProject }: { project: iProject, updateProject: Function }) {
   const { isSignedIn } = useAuth();
 
   const [isModal, setModal] = useState(false);
@@ -74,13 +74,7 @@ function ProgressPanel({ project }: { project: iProject }) {
             <Button className='py-3 text-xl w-full' onClick={() => setModal(true)}>
               <span className='mx-auto'>Поддержать проект</span>
             </Button>
-            <Modal
-              visible={isModal}
-              title='Заголовок'
-              content={<p>Что-то важное</p>}
-              footer={<Button onClick={onClose}>Закрыть</Button>}
-              onClose={onClose}
-            />
+            <SupportModal updateProject={updateProject} id={project?.id} isModal={isModal} onClose={onClose} />
           </div>
         </>
       ) : (
