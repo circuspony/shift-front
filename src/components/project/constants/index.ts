@@ -28,6 +28,7 @@ export const projectExamples: iProject[] = [
         creationDate: new Date("2023-04-04"),
         finishDate: new Date("2023-12-12"),
         category: "LITERATURE",
+        attachmentIds: ["43490c13-49cb-4ac3-ac63-544409512e3a", "89a2122d-6e97-4db3-958b-49da4005e053", "fead238c-89f8-4f79-a2e1-2696703b97b3", "9af70759-a9f4-488a-bef2-2fe449c23203"],
         creator: {
             id: "32",
             name: "антуан",
@@ -35,7 +36,7 @@ export const projectExamples: iProject[] = [
             bio: "Герой",
             money: 10000000,
             surname: "антуан",
-            avatar: "https://i.scdn.co/image/ab6761610000e5eb816f8ce05990b68f6fe1457d",
+            avatarId: "db520cad-2337-4729-a22c-0acf6eb73b18",
             projects: 9
         }
     },
@@ -54,6 +55,7 @@ export const projectExamples: iProject[] = [
         creationDate: new Date("2023-04-04"),
         finishDate: new Date("2023-12-12"),
         category: "LITERATURE",
+        attachmentIds: ["43490c13-49cb-4ac3-ac63-544409512e3a", "89a2122d-6e97-4db3-958b-49da4005e053", "fead238c-89f8-4f79-a2e1-2696703b97b3", "9af70759-a9f4-488a-bef2-2fe449c23203"],
         creator: {
             id: "32",
             name: "антуан",
@@ -61,7 +63,7 @@ export const projectExamples: iProject[] = [
             bio: "Герой",
             money: 10000000,
             surname: "антуан",
-            avatar: "https://i.scdn.co/image/ab6761610000e5eb816f8ce05990b68f6fe1457d",
+            avatarId: "db520cad-2337-4729-a22c-0acf6eb73b18",
             projects: 9
         }
     },
@@ -80,6 +82,7 @@ export const projectExamples: iProject[] = [
         creationDate: new Date("2023-04-04"),
         finishDate: new Date("2023-12-12"),
         category: "LITERATURE",
+        attachmentIds: ["43490c13-49cb-4ac3-ac63-544409512e3a", "89a2122d-6e97-4db3-958b-49da4005e053", "fead238c-89f8-4f79-a2e1-2696703b97b3", "9af70759-a9f4-488a-bef2-2fe449c23203"],
         creator: {
             id: "32",
             name: "антуан",
@@ -87,7 +90,7 @@ export const projectExamples: iProject[] = [
             bio: "Герой",
             money: 10000000,
             surname: "антуан",
-            avatar: "https://i.scdn.co/image/ab6761610000e5eb816f8ce05990b68f6fe1457d",
+            avatarId: "db520cad-2337-4729-a22c-0acf6eb73b18",
             projects: 9
         }
     }

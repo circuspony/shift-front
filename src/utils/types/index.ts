@@ -6,7 +6,6 @@ export interface iProfile {
     surname: string
     patronymic?: string,
     role?: string,
-    avatar?: string
     avatarId?: string,
     email: string,
     bio: string
@@ -30,7 +29,7 @@ export interface iProject {
     description?: string
     authorId?: string
     avatarId?: string
-    attachmentIds?: string[]
+    attachmentIds: string[]
     image?: string
     status: ProjectStatus
     isApproved: boolean
