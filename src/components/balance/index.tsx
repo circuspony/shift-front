@@ -3,11 +3,12 @@ import { FieldValues, useForm } from 'react-hook-form';
 import Button from '../button';
 import CoinIcon from '../svg/coinIcon';
 import { activatePromo } from '../../api/requests/activatePromo';
+import useAuth from '../../hooks/useAuth';
 
 function Balance() {
   const [success, setSuccess] = useState(false);
 
-  const [codes, setCodes] = useState([]);
+  const [amount, setAmount] = useState(0);
 
   const {
     register,
@@ -16,12 +17,16 @@ function Balance() {
     setError,
     reset
   } = useForm({});
+
+  const { userInfo, updateUserProfile } = useAuth()
+
   const onSubmit = async (data: FieldValues) => {
     const activatePromoStatus = await activatePromo(data.code);
     if (activatePromoStatus.success) {
       setSuccess(true);
+      updateUserProfile()
+      setAmount(activatePromoStatus?.data?.money - userInfo.money);
       reset({ code: '' });
-      setCodes(activatePromoStatus.data);
     } else {
       setError('code', { type: 'custom', message: 'Такого кода не существует!' });
     }
@@ -34,7 +39,7 @@ function Balance() {
             <>
               <div className='text-3xl mt-4 font-bold text-center'>Ура!</div>
               <div className='flex mx-auto text-3xl mt-4'>
-                Вы получили 500
+                Вы получили {amount}
                 <div className='text-normal-text w-9 ml-2'>
                   <CoinIcon />
                 </div>
