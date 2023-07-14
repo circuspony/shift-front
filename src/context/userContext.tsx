@@ -8,7 +8,7 @@ interface iUserContext {
   setIsSignedIn: Dispatch<SetStateAction<AuthStatus>>;
   userInfo: iProfile;
   setUserInfo: Dispatch<SetStateAction<iProfile>>;
-  authorizeUser: Function
+  updateUserProfile: Function
   isAdmin: boolean
   isModer: boolean
 }
@@ -34,7 +34,7 @@ const UserContext = React.createContext<iUserContext>({
   setIsSignedIn: () => { },
   userInfo: defaultProfile,
   setUserInfo: () => { },
-  authorizeUser: () => { },
+  updateUserProfile: () => { },
   isAdmin: false,
   isModer: false,
 });
@@ -49,7 +49,7 @@ export const UserContextProvider = ({
   const [isAdmin, setIsAdmin] = useState(false);
   const [isModer, setIsModer] = useState(false);
 
-  const authorizeUser = async () => {
+  const updateUserProfile = async () => {
     if (cookies.get('accessToken')) {
       const profileStatus = await getUser()
       if (profileStatus.success) {
@@ -87,7 +87,7 @@ export const UserContextProvider = ({
   }, [isSignedIn]);
 
   useEffect(() => {
-    authorizeUser()
+    updateUserProfile()
   }, []);
 
   return (
@@ -97,7 +97,7 @@ export const UserContextProvider = ({
         setIsSignedIn,
         userInfo,
         setUserInfo,
-        authorizeUser,
+        updateUserProfile,
         isAdmin,
         isModer
       }}

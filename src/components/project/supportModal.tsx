@@ -8,7 +8,7 @@ import PiggyIcon from "../svg/piggyIcon";
 
 
 function SupportModal({ id, isModal, onClose, updateProject }: { id: string | undefined, isModal: boolean, onClose: Function, updateProject: Function }) {
-    const { userInfo, authorizeUser } = useAuth()
+    const { userInfo, updateUserProfile } = useAuth()
     const [success, setSuccess] = useState(false)
     const { register, formState: { errors }, handleSubmit, setError } = useForm({});
 
@@ -18,7 +18,7 @@ function SupportModal({ id, isModal, onClose, updateProject }: { id: string | un
             amount: data.amount
         })
         if (supportStatus.success) {
-            authorizeUser()
+            updateUserProfile()
             updateProject(supportStatus.data)
             setSuccess(true)
         }

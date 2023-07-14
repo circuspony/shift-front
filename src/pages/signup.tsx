@@ -13,7 +13,7 @@ function SignUp() {
     const [submitError, setSubmitError] = useState("")
 
     const { register, formState: { errors }, handleSubmit, watch } = useForm({});
-    const { authorizeUser } = useAuth()
+    const { updateUserProfile } = useAuth()
 
     const password = useRef({});
     password.current = watch("password", "");
@@ -29,7 +29,7 @@ function SignUp() {
         })
         if (responseStatus.success) {
             navigate("/")
-            authorizeUser()
+            updateUserProfile()
         }
         else {
             setSubmitError(responseStatus.message)

@@ -11,7 +11,7 @@ function SignIn() {
   const [submitError, setSubmitError] = useState("")
 
   const { register, formState: { errors }, handleSubmit } = useForm({});
-  const { authorizeUser } = useAuth()
+  const { updateUserProfile } = useAuth()
   const navigate = useNavigate();
   const onSubmit = async (data: FieldValues) => {
     const responseStatus = await loginUser({
@@ -20,7 +20,7 @@ function SignIn() {
     })
     if (responseStatus.success) {
       navigate("/")
-      authorizeUser()
+      updateUserProfile()
     }
     else {
       setSubmitError(responseStatus.message)
