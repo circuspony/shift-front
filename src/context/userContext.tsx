@@ -19,6 +19,7 @@ const defaultProfile = {
   patronymic: '',
   avatarId: '',
   email: "",
+  role: "ROLE_USER",
   bio: 'Миллионер, криптоинвестор, плейбой',
   personalWebLink: '',
   facebookLink: '',
@@ -44,7 +45,7 @@ export const UserContextProvider = ({
   children: ReactNode;
 }) => {
   const [isSignedIn, setIsSignedIn] = useState<AuthStatus>(undefined);
-  const [userInfo, setUserInfo] = useState(defaultProfile);
+  const [userInfo, setUserInfo] = useState<iProfile>(defaultProfile);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isModer, setIsModer] = useState(false);
 

@@ -1,27 +1,21 @@
 export type AuthStatus = boolean | undefined
 
-export interface iCreator {
-    firstName: string
-    lastName: string
-    avatar: string
-    projectNumber: number
-}
-
 export interface iProfile {
     id?: string
     name: string
     surname: string
-    patronymic: string,
+    patronymic?: string,
     role?: string,
-    avatarId: string,
+    avatar?: string
+    avatarId?: string,
     email: string,
     bio: string
     money: number
-    personalWebLink: string
-    facebookLink: string
-    twitterLink: string
-    instagramLink: string
-    projects: number
+    personalWebLink?: string
+    facebookLink?: string
+    twitterLink?: string
+    instagramLink?: string
+    projects?: number
 }
 
 
@@ -34,7 +28,9 @@ export interface iProject {
     title: string
     summary?: string
     description?: string
+    authorId?: string
     avatarId?: string
+    attachmentIds?: string[]
     image?: string
     status: ProjectStatus
     isApproved: boolean
@@ -44,7 +40,7 @@ export interface iProject {
     creationDate: Date
     finishDate: Date
     category: string
-    creator: iCreator
+    creator: iProfile
 }
 
 export interface iRequest {

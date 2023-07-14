@@ -8,7 +8,6 @@ function PromoGeneration() {
     const [codes, setCodes] = useState([])
     const { register, formState: { errors }, handleSubmit, reset } = useForm({});
     const onSubmit = async (data: FieldValues) => {
-
         const createPromoStatus = await createPromo({ count: data.count, amount: data.amount })
         if (createPromoStatus.success) {
             setSuccess(true)
