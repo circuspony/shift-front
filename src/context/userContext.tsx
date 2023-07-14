@@ -64,6 +64,7 @@ export const UserContextProvider = ({
         setUserInfo({
           ...userInfo,
           name: profileStatus?.data?.name || "",
+          id: profileStatus?.data?.id || "",
           avatarId: profileStatus?.data?.avatarId || "",
           surname: profileStatus?.data?.surname || "",
           email: profileStatus?.data?.email || "",

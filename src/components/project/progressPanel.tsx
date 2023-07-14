@@ -9,7 +9,7 @@ import { months, projectCategories } from './constants';
 import SupportModal from './supportModal';
 
 function ProgressPanel({ project, updateProject }: { project: iProject, updateProject: Function }) {
-  const { isSignedIn } = useAuth();
+  const { isSignedIn, userInfo } = useAuth();
 
   const [isModal, setModal] = useState(false);
   const onClose = () => setModal(false);
@@ -68,7 +68,7 @@ function ProgressPanel({ project, updateProject }: { project: iProject, updatePr
           <div className='text-gray-400'>запущен</div>
         </div>
       </div>
-      {isSignedIn ? (
+      {isSignedIn && userInfo.id !== project.authorId ? (
         <>
           <div className='flex w-full mt-4 justify-center relative'>
             <Button className='py-3 text-xl w-full' onClick={() => setModal(true)}>
